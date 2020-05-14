@@ -15,6 +15,8 @@
     "express-group-routes": "^1.1.0",
     "express-yields": "^1.1.2",
     "knex": "^0.21.1",
+    "mongodb": "^3.5.7",
+    "mongoose": "^5.9.14",
     "morgan": "~1.9.1",
     "mysql": "^2.18.1",
     "mysql2": "^2.1.0",

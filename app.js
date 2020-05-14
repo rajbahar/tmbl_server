@@ -9,7 +9,7 @@ const dotenv = require("dotenv");
 var cors = require('cors')
 dotenv.config();
 
-// const database = require("./app/database/database");
+const database = require("./app/database/database");
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');

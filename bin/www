@@ -89,4 +89,7 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
   console.log('Listening on ' + bind);
+  var moment = require('moment-timezone');
+  let now = moment().tz("Asia/Kolkata").format('DD-MM-YYYY h:mm:ss a');
+  console.log('Server Start On Time :' + now)
 }
