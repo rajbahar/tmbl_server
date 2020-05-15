@@ -78,7 +78,8 @@ var mongoose = require("mongoose");
 var connectionString= process.env.CONNECTION_STRING
 var options={
   useNewUrlParser: true,
-  useUnifiedTopology: true 
+  useUnifiedTopology: true,
+  useFindAndModify:false
 }
 mongoose.connect(connectionString,options);
 var db = mongoose.connection;

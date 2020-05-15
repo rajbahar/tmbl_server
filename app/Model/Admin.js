@@ -6,20 +6,13 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  Email: {
+  UserName: {
     type: String,
     required: true
   },
-  Phone: {
+  Password: {
     type: String,
     required: true
-  },
-  City: {
-    type: String,
-    required: true
-  },
-  OTP: {
-    type: String
   },
   createdAt: {
     type: Date,
@@ -32,4 +25,4 @@ const UserSchema = mongoose.Schema({
 });
 
 // export model user with UserSchema
-module.exports = mongoose.model("Users", UserSchema,'Users');
+module.exports = mongoose.model("Admin", UserSchema,'Admin');
