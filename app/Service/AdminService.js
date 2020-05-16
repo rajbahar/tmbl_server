@@ -13,7 +13,12 @@ class AdminService{
             return {Success:false,Data:"Admin Not Found"}
         }
 
-         return {Success:true,Data:result}
+        let response={
+            _id: result._id,
+            Name:result.Name,
+            Role:"Admin"
+        }
+         return {Success:true,Data:response}
     }
 
     *Register(data) {
@@ -32,6 +37,19 @@ class AdminService{
 
         return { Success: true, Data: result }
 
+    }
+
+
+    *getUserByID(data) {
+        const existing = yield Admin.findOne({
+            _id: data._id
+        });
+        if (existing) {
+            
+            return { Success: true };
+        } else {
+            return { Success: false };
+        }
     }
 
 

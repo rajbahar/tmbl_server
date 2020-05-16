@@ -2,8 +2,9 @@
 
 var jwt = require("jsonwebtoken");
 const UserService = require("./Service/UserService");
-
+const AdminService = require("./Service/AdminService");
 const userService = new UserService();
+const _adminService=new AdminService();
 
 class JWT {
   constructor() {}
@@ -63,7 +64,7 @@ class JWT {
             }
             break;
           case "Admin":
-            let Admin_isLoggedin=yield userService.getUser(decoded.user);
+            let Admin_isLoggedin=yield _adminService.getUserByID(decoded.user);
             if (Admin_isLoggedin.Success==true) {
             //   next();
             } else {
