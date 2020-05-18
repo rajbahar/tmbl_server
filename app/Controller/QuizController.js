@@ -33,7 +33,8 @@ class QuizController{
     }
 
     *FetchOneQuiz(request,response){
-        const result= yield _QuizService.FetchOneQuiz();
+        const data=request.body;
+        const result= yield _QuizService.FetchOneQuiz(data);
         response.json(result);
         response.end();
     }
@@ -42,6 +43,13 @@ class QuizController{
         const data=request.body;
         const result= yield _QuizService.ValidateQuiz(data);
         response.json(result);
+        response.end();
+    }
+
+    *BroadcastQuiz(request,response){
+        const data=request.body;
+        response.io.emit("onQuizEvent", data);
+        response.json(data);
         response.end();
     }
 }

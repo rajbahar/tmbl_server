@@ -33,7 +33,8 @@ class JumbleController{
     }
 
     *FetchOneJumble(request,response){
-        const result= yield _JumbleService.FetchOneJumble();
+        const data = request.body;
+        const result= yield _JumbleService.FetchOneJumble(data);
         response.json(result);
         response.end();
     }

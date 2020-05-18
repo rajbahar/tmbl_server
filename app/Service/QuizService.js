@@ -1,6 +1,9 @@
 'use strict'
 
 const Quiz=require('../Model/Quiz');
+const SessionDetails=require('../Model/Session');
+const UserDetails=require('../Model/UserDetails');
+
 
 class QuizService{
     constructor(){}
@@ -46,9 +49,8 @@ class QuizService{
         return {Success:true,Data:result}
     }
 
-    *FetchOneQuiz(){
-        let result=yield Quiz.findOne({}, {__v:0,submittedBy:0,submittedDate:0,answer:0});
-        
+    *FetchOneQuiz(data){
+        let result=yield Quiz.findOne({_id:data._id}, {__v:0,submittedBy:0,submittedDate:0,answer:0});        
         return {Success:true,Data:result}
     }
 
@@ -57,15 +59,37 @@ class QuizService{
         if(!result){
             return {Success:false,Data:"Quiz not found"}
         }
+        let sessionresult=yield SessionDetails.findOne({}).sort([['Session', -1]])
+        let userresult=yield UserDetails.findOne({ Phone:data.Phone,Session:sessionresult.Session});
+        if(!userresult)
+            return {Success:false,Date:"User not found"}
+        
+        if(!userresult.Quiz)
+            userresult.Quiz= [];
+
         if(data.answer == result.answer)
         {
+            userresult.Quiz.push({_id:result._id,answer:true})
+            console.log(userresult.Quiz);
+            let updateresult = yield UserDetails.findOneAndUpdate({
+                Phone:data.Phone,Session:sessionresult.Session
+                },{ $set: { Quiz: userresult.Quiz } });
+            
             return {Success:true,Date:"Correct Answer"}
         }
         else
         {
+            userresult.Quiz.push({_id:result._id,answer:true})
+            console.log(userresult.Quiz);
+            let updateresult = yield UserDetails.findOneAndUpdate({
+                Phone:data.Phone,Session:sessionresult.Session
+                },{ $set: { Quiz: userresult.Quiz } });
+            
             return{Success:false,Data:"Wrong Answer"}
         }
     }
+
+  
 }
 
 module.exports=QuizService;

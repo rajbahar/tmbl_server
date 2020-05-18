@@ -28,7 +28,12 @@ const UserSchema = mongoose.Schema({
   updatedAt: {
     type: Date,
     default: Date.now()
+  },
+  coins:{
+    type:Number,
+    default:0
   }
+
 });
 
 // export model user with UserSchema

@@ -1,6 +1,8 @@
 'use strict'
 var otpGenerator = require('otp-generator')
 const User = require('../Model/User');
+const SessionDetails=require('../Model/Session');
+const UserDetails=require('../Model/UserDetails');
 
 class UserService {
     constructor() { }
@@ -55,13 +57,17 @@ class UserService {
             return { Success: false, Data: "User not found." }
         }
 
+        let sessionresult=yield SessionDetails.findOne({}).sort([['Session', -1]])
+        let UserDetailresult=yield UserDetails.findOne({Phone:data.Phone,Session:sessionresult.Session}, {});
+
         let response = {
             _id:existing._id,
             Name: existing.Name,
             Email:existing.Email,
             Phone: existing.Phone,
             City: existing.City,
-            Role:'User'
+            Role:'User',
+            UserDetails: UserDetailresult
         }
         return { Success: true, Data: response }
 

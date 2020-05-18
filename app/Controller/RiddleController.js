@@ -33,7 +33,8 @@ class RiddleController{
     }
     
     *FetchOneRiddle(request,response){
-        const result= yield _RiddleService.FetchOneRiddle();
+        const data=request.body;
+        const result= yield _RiddleService.FetchOneRiddle(data);
         response.json(result);
         response.end();
     }

@@ -6,16 +6,20 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "array-contains-all": "^1.0.1",
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
+    "dateformat": "^3.0.3",
     "debug": "~2.6.9",
     "dotenv": "^8.2.0",
     "errorhandler": "^1.5.1",
     "express": "~4.16.1",
     "express-group-routes": "^1.1.0",
     "express-yields": "^1.1.2",
+    "fast-array-diff": "^0.2.0",
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.21.1",
+    "moment": "^2.25.3",
     "mongodb": "^3.5.7",
     "mongoose": "^5.9.14",
     "morgan": "~1.9.1",
@@ -25,6 +29,7 @@
     "sequelize": "^5.21.8",
     "shuffle-words": "^0.1.2",
     "socket.io": "^2.3.0",
-    "socket.io-client": "^2.3.0"
+    "socket.io-client": "^2.3.0",
+    "tambola-generator": "0.0.1"
   }
 }
