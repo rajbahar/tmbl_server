@@ -18,6 +18,13 @@ class GuessNextController{
         response.json(result);
         response.end();
     }
+
+    *BroadcastGuessNext(request,response){
+     
+        response.io.emit("onGuessEvent");
+        response.json({Success:true,Data:"onGuessEvent"});
+        response.end();
+    }
 }
 
 module.exports=GuessNextController;

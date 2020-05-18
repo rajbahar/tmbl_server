@@ -89,6 +89,7 @@ function routes(app) {
     router.post("/guess/submitnextnumber",_guessnextController.SubmitGuessNext);
 
     router.post('/broadcast/quiz',_quizController.BroadcastQuiz)
+    router.post('/broadcast/guess',_guessnextController.BroadcastGuessNext)
     router.get("/user/list",_userController.List);
 
   });
