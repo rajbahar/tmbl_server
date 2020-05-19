@@ -39,3 +39,5 @@ app.use(errorhandler({ log: false })) //error log off
 
 // module.exports = app;
 module.exports = {app: app, server: server};
+
+

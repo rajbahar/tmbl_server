@@ -47,9 +47,9 @@ class QuizController{
     }
 
     *BroadcastQuiz(request,response){
-        const data=request.body;
+         const data=request.body;
         response.io.emit("onQuizEvent", data);
-        response.json(data);
+        response.json({Success:true,Data:data});
         response.end();
     }
 }

@@ -58,7 +58,7 @@ class JumbleService{
             "jumbleDate": {"$gte": today.toDate(), "$lt": moment(today).endOf('day').toDate()}
         }, {__v:0,submittedBy:0,submittedDate:0});
         if(!result)
-            return {Success:false,Data:"No Quiz Today"}
+            return {Success:false,Data:"No Jumble Today"}
 
         let sessionresult=yield SessionDetails.findOne({}).sort([['Session', -1]])
         let userresult=yield UserDetails.findOne({ Phone:data.Phone,Session:sessionresult.Session,
@@ -66,7 +66,7 @@ class JumbleService{
         });
         console.log(userresult);
         if(userresult)
-            return {Success:false,Date:"You have already played the quiz. Come back tomorrow"}
+            return {Success:false,Data:"You have already played the jumble. Come back tomorrow"}
 
         var DatatoSend = {
             "_id":result._id,
@@ -86,7 +86,7 @@ class JumbleService{
         let sessionresult=yield SessionDetails.findOne({}).sort([['Session', -1]])
         let userresult=yield UserDetails.findOne({ Phone:data.Phone,Session:sessionresult.Session});
         if(!userresult)
-            return {Success:false,Date:"User not found"}
+            return {Success:false,Data:"User not found"}
         
         if(!userresult.Jumble)
             userresult.Jumble= [];
@@ -98,7 +98,7 @@ class JumbleService{
                     Phone:data.Phone,Session:sessionresult.Session
                 },{ $set: { Jumble: userresult.Jumble } });
             
-            return {Success:true,Date:"Correct Answer"}
+            return {Success:true,Data:"Correct Answer"}
         }
         else
         {

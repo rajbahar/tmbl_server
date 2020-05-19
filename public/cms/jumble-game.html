@@ -86,29 +86,29 @@
                   <div class="card">
                      <div class="card-body">
                         <h4 class="header-title">Add Jumble</h4>
-                        <form>
+                        <!-- <form> -->
 						
                            <div class="form-group">
                               <label for="disabledTextInput">Answer Options</label>
                               <div class="answer-options">
-                                 <input type="file" name="jumbleImg" class="custom-file-input">
+                                 <input type="file" name="jumbleImg" class="custom-file-input" onchange="encodeImageFileAsURL(this);">
                               </div>
                            </div>
 						   <div class="form-group">
                               <label for="disabledTextInput">Pick Date</label>
                               <div class="answer-options">
-                                 <input type="date" class="form-control" name="date" placeholder="" required>
+                                 <input type="date" class="form-control" name="date" id="jumble_date" placeholder="" required>
                               </div>
                            </div>
 						   
 						   <div class="form-group">
                               <label for="disabledTextInput">Correct Answer</label>
                               <div class="answer-options">
-							  <input type="text" class="form-control" name="riddleanswer" placeholder="Correct Answer" required="">
+							  <input type="text" class="form-control" name="riddleanswer" id="answer_text" placeholder="Correct Answer" required="">
                               </div>
                            </div>
-                           <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Add</button>
-                        </form>
+                           <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4" onclick="AddJumble();">Add</button>
+                        <!-- </form> -->
                      </div>
                   </div>
                </div>
@@ -128,7 +128,7 @@
                                        <th scope="col">Actions</th>
                                     </tr>
                                  </thead>
-                                 <tbody>
+                                 <tbody id="List_tbody">
                                     <tr>
                                        <th scope="row">1</th>
                                        <td>Tata Cliq</td>

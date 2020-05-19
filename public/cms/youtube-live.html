@@ -90,18 +90,18 @@
                <div class="card">
                   <div class="card-body">
                      <h4 class="header-title">Add Number</h4>
-                     <form>
+                     <!-- <form> -->
                         <div class="row">
                            <div class="col-10">
                               <div class="form-group">
-                                 <input type="text" class="form-control" name="ytNumber" placeholder="Type Number"
+                                 <input type="text" class="form-control" name="ytNumber" id="ytNumber" placeholder="Type Number"
                                     required>
                               </div>
                            </div>
-                           <div class="col-2"> <button type="submit" class="btn btn-primary pr-4 pl-4">Submit</button>
+                           <div class="col-2"> <button type="submit" class="btn btn-primary pr-4 pl-4" onclick="sendTambolaLive();">Submit</button>
                            </div>
                         </div>
-                     </form>
+                     <!-- </form> -->
 
                      <h4 class="header-title mt-4">Crossed Numbers List</h4>
                      <div class="single-table">
@@ -149,29 +149,29 @@
                         title="Interface will open for user to answer the Quiz">Shoot Quiz on User's Screen</button>
 
 
-                     <form>
+                     <!-- <form> -->
                         <div class="form-group">
                            <label for="disabledTextInput">Add Predefined Question</label>
-                           <input type="text" class="form-control" name="riddleQuestion" placeholder="Type Here"
+                           <input type="text" class="form-control" name="riddleQuestion" id="question_text" placeholder="Type Here"
                               required="">
                         </div>
                         <div class="form-group">
                            <label for="disabledTextInput">Answer Options</label>
                            <div class="answer-options">
-                              <input type="text" class="form-control" name="riddleanswer" placeholder="A." required="">
-                              <input type="text" class="form-control" name="riddleanswer" placeholder="B." required="">
-                              <input type="text" class="form-control" name="riddleanswer" placeholder="C." required="">
+                              <input type="text" class="form-control" name="riddleanswer" id="opt_1" placeholder="A." required="">
+                              <input type="text" class="form-control" name="riddleanswer" id="opt_2" placeholder="B." required="">
+                              <input type="text" class="form-control" name="riddleanswer" id="opt_3" placeholder="C." required="">
                            </div>
                         </div>
                         <div class="form-group">
                            <label for="disabledTextInput">Correct Answer</label>
                            <div class="answer-options">
-                              <input type="text" class="form-control" name="riddleanswer" placeholder="Correct Answer"
+                              <input type="text" class="form-control" name="riddleanswer" id="answer_text" placeholder="Correct Answer"
                                  required="">
                            </div>
                         </div>
-                        <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Add</button>
-                     </form>
+                        <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4" onclick="SubmitQuiz();">Add</button>
+                     <!-- </form> -->
 
 
 
@@ -191,7 +191,7 @@
                                     <th scope="col">Actions</th>
                                  </tr>
                               </thead>
-                              <tbody>
+                              <tbody id="List_tbody">
                                  <tr>
                                     <th scope="row">1</th>
                                     <td>What is Tata Cliq?</td>
@@ -304,7 +304,7 @@
                      <div class="card-body">
 
                         <button type="submit" class="btn btn-primary mb-4"
-                           title="Interface will open for user to answer the Quiz">Shoot Interface on User's
+                           title="Interface will open for user to answer the Quiz" onclick="ShootGuessNext();">Shoot Interface on User's
                            Screen</button>
                         <button type="submit" class="btn btn-secondary mb-4" title="Revoke Interface">Revoke
                            Interface</button>
@@ -571,6 +571,7 @@
    <script src="assets/js/plugins.js"></script>
    <script src="assets/js/scripts.js"></script>
    <script src="assets/js/app.js"></script>
+   <script src="javascript/youtubeLive.js"></script>
 </body>
 
 </html>

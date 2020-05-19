@@ -66,7 +66,7 @@ class RiddleService{
         });
         console.log(userresult);
         if(userresult)
-            return {Success:false,Date:"You have already played the quiz. Come back tomorrow"}
+            return {Success:false,Data:"You have already played the quiz. Come back tomorrow"}
 
         return {Success:true,Data:result}
     }
@@ -79,7 +79,7 @@ class RiddleService{
         let sessionresult=yield SessionDetails.findOne({}).sort([['Session', -1]])
         let userresult=yield UserDetails.findOne({ Phone:data.Phone,Session:sessionresult.Session});
         if(!userresult)
-            return {Success:false,Date:"User not found"}
+            return {Success:false,Data:"User not found"}
         
         if(!userresult.Riddle)
             userresult.Riddle= [];
@@ -91,7 +91,7 @@ class RiddleService{
                     Phone:data.Phone,Session:sessionresult.Session
                 },{ $set: { Riddle: userresult.Riddle } });
             
-            return {Success:true,Date:"Correct Answer"}
+            return {Success:true,Data:"Correct Answer"}
         }
         else
         {

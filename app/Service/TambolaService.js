@@ -1,6 +1,7 @@
 'use strict'
 
 const UserDetails=require('../Model/UserDetails');
+const User=require('../Model/User');
 const SessionDetails=require('../Model/Session');
 const TambolaLiveDetails = require('../Model/TambolaLive');
 var tambola = require('tambola-generator');
@@ -11,7 +12,9 @@ class TambolaService{
     constructor(){}
 
     *GenerateTicket(data){
-     
+        let userresult = yield User.findOne({Phone:data.Phone});
+        if(!userresult)
+            return {Success:false,Data:"User not present"}
         let sessionresult=yield SessionDetails.findOne({}).sort([['Session', -1]])
         let result=yield UserDetails.findOne({Phone:data.Phone,Session:sessionresult.Session}, {Phone:1,TambolaTicket:1,TambolaTicketNumber:1});
         var ticket = tambola.getTickets(1);       
@@ -36,18 +39,12 @@ class TambolaService{
                     "first":ticket[0][0],
                     "second":ticket[0][1],
                     "third":ticket[0][2]
-                }
+                },
+                "LuckyDraw":{"opt":false,"win":false}
             }
             let uploadresult = new UserDetails(DatatoUpload);
             yield uploadresult.save();
-            result = {"Phone":data.Phone,
-            "TambolaTicket":{
-                "first":ticket[0][0],
-                "second":ticket[0][1],
-                "third":ticket[0][2]
-                },
-            "TambolaTicketNumber":NextTicketNo
-            }
+            result = DatatoUpload;
         }
         
         return {Success:true,Data:result}
