@@ -10,7 +10,7 @@ class LuckyDrawService{
         let sessionresult=yield SessionDetails.findOne({}).sort([['Session', -1]])
         let userresult=yield UserDetails.findOne({ Phone:data.Phone,Session:sessionresult.Session});
         if(!userresult)
-            return {Success:false,Date:"User not found"}
+            return {Success:false,Data:"User not found"}
         
         yield UserDetails.findOneAndUpdate({
             Phone:data.Phone,Session:sessionresult.Session
@@ -24,7 +24,7 @@ class LuckyDrawService{
         let sessionresult=yield SessionDetails.findOne({}).sort([['Session', -1]])
         let userresult=yield UserDetails.findOne({ Phone:data.Phone,Session:sessionresult.Session});
         if(!userresult)
-            return {Success:false,Date:"User not found"}
+            return {Success:false,Data:"User not found"}
         
         yield UserDetails.findOneAndUpdate({
             Phone:data.Phone,Session:sessionresult.Session

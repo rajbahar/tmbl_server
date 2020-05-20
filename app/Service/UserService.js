@@ -85,6 +85,19 @@ class UserService {
         }
     }
 
+    *getProfile(data){
+  
+        let existing = yield User.findOne({
+            Phone: data.Phone
+        },{ Name: 1, coins: 1,_id: 0 });
+
+        if (!existing) {
+            return { Success: false, Data: "User not found" }
+        }
+      
+        return { Success: true,Data:existing };
+    }
+
     *List() {
         let result = yield User.find( { }, { _id: 0, OTP: 0 ,__v:0} );
         return { Success: true, Data: result }

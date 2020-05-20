@@ -259,6 +259,12 @@ class TambolaService{
         return {Success:true,Data:result}
 
     }    
+
+    *TambolaAnnounced(){
+        let sessionresult=yield SessionDetails.findOne({}).sort([['Session', -1]])
+        let result=yield TambolaLiveDetails.findOne({Session:sessionresult.Session});
+        return {Success:true,Data:result}
+    } 
 }
 
 module.exports=TambolaService;

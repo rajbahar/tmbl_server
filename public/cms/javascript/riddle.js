@@ -20,6 +20,7 @@ var getRiddleList=function(){
                     for (var j = 0; j < response.Data[i].options.length; j++){
                         riddleList_tbody +=  '<td>'+response.Data[i].options[j]+'</td>'
                     }
+                    riddleList_tbody += '<td>'+response.Data[i].answer+'</td>';
                     riddleList_tbody += '<td>  <ul class="d-flex justify-content-center">'+
                     '<li><a class="text-danger" onclick=deleteRiddle("'+ response.Data[i]._id+'")><i class="ti-trash"></i></a></li>'+
                     ' </ul>  </td>   </tr>'

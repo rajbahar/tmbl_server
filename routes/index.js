@@ -47,6 +47,7 @@ function routes(app) {
       yield _jwt.verifyUserToken(req, res,next)
     });
 
+    router.get('/user/profile',_userController.GetProfile)
     router.post("/jumble/fetchonejumble",_jumbleController.FetchOneJumble);
     router.post("/jumble/validatejumble",_jumbleController.ValidateJumble);
     router.post("/quiz/fetchonequiz",_quizController.FetchOneQuiz);
@@ -55,6 +56,7 @@ function routes(app) {
     router.post("/riddle/validateriddle",_riddleController.ValidateRiddle);
     router.post("/tambola/generateticket",_tambolaController.GenerateTicket);
     router.post("/tambola/validateticket",_tambolaController.ValidateTicket);
+    router.get("/tambola/tambolaannounced",_tambolaController.TambolaAnnounced);
     router.post("/lucky/optluckydraw",_luckydrawController.OptLuckyDraw);
     router.post("/guess/selectnumber",_guessnextController.SelectGuessNext);
 
@@ -87,6 +89,7 @@ function routes(app) {
     router.get("/lucky/fetchwinners",_luckydrawController.FetchWinners);
     
     router.post("/guess/submitnextnumber",_guessnextController.SubmitGuessNext);
+    router.post("/guess/currentround",_guessnextController.CurrentRound);
 
     router.post('/broadcast/quiz',_quizController.BroadcastQuiz)
     router.post('/broadcast/guess',_guessnextController.BroadcastGuessNext)

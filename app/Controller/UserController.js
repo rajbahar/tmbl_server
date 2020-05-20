@@ -34,6 +34,13 @@ class UserController{
         response.end();
     }
 
+    *GetProfile(request,response){
+        const data=request.query;
+        const result= yield _userService.getProfile(data);
+        response.json(result);
+        response.end();
+    }
+
     *List(request,response){
         const result= yield _userService.List();
         response.json(result);

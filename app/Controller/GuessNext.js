@@ -21,10 +21,18 @@ class GuessNextController{
 
     *BroadcastGuessNext(request,response){
      
+        const result= yield _GuessNextService.NextRound();
         response.io.emit("onGuessEvent");
         response.json({Success:true,Data:"onGuessEvent"});
         response.end();
     }
+    
+    *CurrentRound(request,response){
+        const result= yield _GuessNextService.CurrentRound(data);
+        response.json(result);
+        response.end();
+    }
+    
 }
 
 module.exports=GuessNextController;

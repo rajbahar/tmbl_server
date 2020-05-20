@@ -28,7 +28,14 @@ class TambolaController{
     *TambolaLive(request,response){
         const data=request.body;
         const result= yield _TambolaService.TambolaLive(data);
-        response.io.emit('onTambolaLive',data.Announced);
+        if(result.Success)
+            response.io.emit('onTambolaLive',data.Announced);
+        response.json(result);
+        response.end();
+    }
+
+    *TambolaAnnounced(request,response){
+        const result= yield _TambolaService.TambolaAnnounced();
         response.json(result);
         response.end();
     }
