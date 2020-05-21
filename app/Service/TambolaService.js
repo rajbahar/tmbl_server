@@ -17,7 +17,7 @@ class TambolaService{
             return {Success:false,Data:"User not present"}
         let sessionresult=yield SessionDetails.findOne({}).sort([['Session', -1]])
         let result=yield UserDetails.findOne({Phone:data.Phone,Session:sessionresult.Session}, {Phone:1,TambolaTicket:1,TambolaTicketNumber:1});
-        var ticket = tambola.getTickets(1);       
+              
         var NextTicketNo =1;
         var TambolaTicketNo =yield UserDetails.findOne({}, {TambolaTicketNumber:1}).sort([['TambolaTicketNumber', -1]]);
         console.log(NextTicketNo);
@@ -27,6 +27,7 @@ class TambolaService{
         console.log(NextTicketNo);
         if(!result)
         {
+            var ticket = tambola.getTickets(1); 
             console.log("phone not found");
             var DatatoUpload = {
                 "Phone":data.Phone,
@@ -40,7 +41,8 @@ class TambolaService{
                     "second":ticket[0][1],
                     "third":ticket[0][2]
                 },
-                "LuckyDraw":{"opt":false,"win":false}
+                "LuckyDraw":{"opt":false,"win":false},
+                "TambolaWin":{"top":false,"middle":false,"last":false,"corners":false,"fastfive":false,"housie":false}
             }
             let uploadresult = new UserDetails(DatatoUpload);
             yield uploadresult.save();
@@ -73,6 +75,10 @@ class TambolaService{
                     console.log(a.length-3)
                     if((a.length-3) >=5)
                     {
+                        result.TambolaWin.fastfive =true;
+                        yield UserDetails.findOneAndDelete({Phone:data.Phone,Session:sessionresult.Session},
+                            { $set: { TambolaWin:result.TambolaWin } 
+                        });
                         return {Success:true,Data:"Early 5 winner"}
                     }
                     else{
@@ -83,6 +89,10 @@ class TambolaService{
                     
                     if(arrayContainsAll(ticketAnnounced,result.TambolaTicket.first))
                     {
+                        result.TambolaWin.top =true;
+                        yield UserDetails.findOneAndDelete({Phone:data.Phone,Session:sessionresult.Session},
+                            { $set: { TambolaWin:result.TambolaWin } 
+                        });
                         return {Success:true,Data:"Top row winner"}
                     }
                     else{
@@ -94,6 +104,10 @@ class TambolaService{
                     
                     if(arrayContainsAll(ticketAnnounced,result.TambolaTicket.second))
                     {
+                        result.TambolaWin.middle =true;
+                        yield UserDetails.findOneAndDelete({Phone:data.Phone,Session:sessionresult.Session},
+                            { $set: { TambolaWin:result.TambolaWin } 
+                        });
                         return {Success:true,Data:"Middle row winner"}
                     }
                     else{
@@ -105,6 +119,10 @@ class TambolaService{
                     
                     if(arrayContainsAll(ticketAnnounced,result.TambolaTicket.third))
                     {
+                        result.TambolaWin.bottom =true;
+                        yield UserDetails.findOneAndDelete({Phone:data.Phone,Session:sessionresult.Session},
+                            { $set: { TambolaWin:result.TambolaWin } 
+                        });
                         return {Success:true,Data:"Bottom row winner"}
                     }
                     else{
@@ -132,12 +150,17 @@ class TambolaService{
                                 bottomleftcorner = element;
                             bottomrightcorner = element;
                         }                        
+                        
                     });
-
                     var cornerArray = [topleftcorner,toprightcorner,bottomleftcorner,bottomrightcorner]
                     console.log(cornerArray);
-                    if(arrayContainsAll(ticketAnnounced,cornerArray))
+                    if(arrayContainsAll(ticketAnnounced,cornerArray)){
+                        result.TambolaWin.corners =true;
+                        yield UserDetails.findOneAndDelete({Phone:data.Phone,Session:sessionresult.Session},
+                            { $set: { TambolaWin:result.TambolaWin } 
+                        });
                         return {Success:true,Data:"4 corners winner"}
+                    }
                     else
                         return {Success:false,Data:"Match Criteria fail"}                      
             case "Cross":
@@ -186,6 +209,10 @@ class TambolaService{
                         arrayContainsAll(ticketAnnounced,result.TambolaTicket.second) &&
                         arrayContainsAll(ticketAnnounced,result.TambolaTicket.third))
                     {
+                        result.TambolaWin.housie =true;
+                        yield UserDetails.findOneAndDelete({Phone:data.Phone,Session:sessionresult.Session},
+                            { $set: { TambolaWin:result.TambolaWin } 
+                        });
                         return {Success:true,Data:"Full House winner"}
                     }
                     else{
@@ -195,8 +222,6 @@ class TambolaService{
                 console.log("No match");
                 return {Success:false,Data:"Ticket found but match criteria not valid"}
         }
-        return {Success:true,Data:"Ticket found"}
-
     }
 
     *CreateNewSession(){

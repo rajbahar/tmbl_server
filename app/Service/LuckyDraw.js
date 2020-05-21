@@ -45,7 +45,8 @@ class LuckyDrawService{
 
     *FetchWinners(){
         let sessionresult=yield SessionDetails.findOne({}).sort([['Session', -1]])
-        let userresult=yield UserDetails.findOne({ Session:sessionresult.Session,
+
+        let userresult=yield UserDetails.find({ Session:sessionresult.Session,
             'LuckyDraw.win': true
             });
         return {Success:true,Data:userresult}

@@ -26,7 +26,11 @@ class UserService {
     }
 
     *Register(data) {
+        // console.log(data)
+        let referral_User= yield User.findOne({_id:data.R_id});
 
+        delete data.R_id;
+        // console.log(data)
         let result = yield User.findOne({
             Phone: data.Phone
         });
@@ -96,6 +100,15 @@ class UserService {
         }
       
         return { Success: true,Data:existing };
+    }
+
+    *GetReferralLink(data){
+        let result = yield User.findOne( {   Phone: data.Phone }, { _id: 1} );
+        if (!result) {
+            return { Success: false, Data: "User not found." }
+        }
+        let link='http://13.234.143.20:3005?id='+result._id;
+        return { Success: true, Data: link }
     }
 
     *List() {

@@ -41,6 +41,15 @@ class UserController{
         response.end();
     }
 
+    *GetReferralLink(request,response){
+
+        const data=request.query;
+        const result= yield _userService.GetReferralLink(data);
+        response.json(result);
+        response.end();
+
+    }
+
     *List(request,response){
         const result= yield _userService.List();
         response.json(result);

@@ -10,6 +10,7 @@ const UserDetailsSchema = mongoose.Schema({
     GuessNext: [{round:Number,product:Number,answer:Boolean}],
     TambolaTicketNumber:  { type: Number, required: true},
     TambolaTicket:{first:[Number],second:[Number],third:[Number]},
+    TambolaWin:{top:Boolean,middle:Boolean,last:Boolean,corners:Boolean,fastfive:Boolean,housie:Boolean},
     LuckyDraw:{opt:Boolean,win:Boolean}
   });
 

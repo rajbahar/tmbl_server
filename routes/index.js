@@ -43,11 +43,12 @@ function routes(app) {
   
   app.group("/api", router => {
 
-    router.use(function * (req, res,next) {
-      yield _jwt.verifyUserToken(req, res,next)
-    });
+    // router.use(function * (req, res,next) {
+    //   yield _jwt.verifyUserToken(req, res,next)
+    // });
 
-    router.get('/user/profile',_userController.GetProfile)
+    router.get('/user/profile',_userController.GetProfile);
+    router.get('/getreferrals/link',_userController.GetReferralLink);
     router.post("/jumble/fetchonejumble",_jumbleController.FetchOneJumble);
     router.post("/jumble/validatejumble",_jumbleController.ValidateJumble);
     router.post("/quiz/fetchonequiz",_quizController.FetchOneQuiz);
@@ -63,9 +64,9 @@ function routes(app) {
   });
 
   app.group("/api/admin", router => {
-    router.use(function * (req, res,next) {
-      yield _jwt.verifyUserToken(req, res,next)
-    });
+    // router.use(function * (req, res,next) {
+    //   yield _jwt.verifyUserToken(req, res,next)
+    // });
     router.get("/quiz/fetchallquiz",_quizController.FetchAllQuiz);
     router.post("/quiz/submitquiz",_quizController.SubmitQuiz);
     router.post("/quiz/deletequiz",_quizController.DeleteQuiz);
