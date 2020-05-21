@@ -26,7 +26,7 @@ var sendTambolaLive=function(data){
 }
 
 var getTambolaAnnounced=function(){
-    
+    document.getElementById("Crossed_List").innerHTML = "";
     let API_Token = localStorage.getItem('API_Token');
     // console.log(API_Token);
     $.ajax({
@@ -96,6 +96,7 @@ var SubmitQuiz =function(){
 }
 // ********************************************************************************************
 var getQuizList=function(){
+    document.getElementById("List_tbody").innerHTML = "";
     let API_Token = localStorage.getItem('API_Token');
     // console.log(API_Token);
     $.ajax({
@@ -199,5 +200,87 @@ var ShootGuessNext=function(){
     });
 }
 // ********************************************************************************************
+var getLuckDraw_winnerList=function(){
+    let API_Token = localStorage.getItem('API_Token');
+    document.getElementById("Lucky_Draw_List_tbody").innerHTML = "";
+    $.ajax({
+        type: "GET",
+        url: "http://13.234.143.20:3005/api/admin/lucky/fetchwinners",
+        headers: { "authorization": 'Bearer ' + API_Token },
+        cache: false,
+        success: function (response) {
+            console.log(response)
+            if (response.Success == true) {
 
+                document.getElementById("Lucky_Draw_List_tbody").innerHTML = "";
+                let List_tbody = ''
+                for (var i = 0; i < response.Data.length; i++){
+                    List_tbody += '<tr>'+
+                    '<td>'+response.Data[i].Phone+'</td>';
+                    List_tbody += '<td>'+response.Data[i].TambolaTicketNumber+'</td></tr>';
+                }
+                $("#Lucky_Draw_List_tbody").html(List_tbody);
+
+            } else {
+                alert('Something went wrong.');
+            }
+        }
+    });
+}
+getLuckDraw_winnerList();
+// ********************************************************************************************
+var show_Lucky_draw_Participate=function(){
+    let API_Token = localStorage.getItem('API_Token');
+    document.getElementById("Participate_Lucky_Draw_List_tbody").innerHTML = "";
+    $.ajax({
+        type: "GET",
+        url: "http://13.234.143.20:3005/api/admin/lucky/fetchoptedluckydraw",
+        headers: { "authorization": 'Bearer ' + API_Token },
+        cache: false,
+        success: function (response) {
+            console.log(response)
+            if (response.Success == true) {
+
+                document.getElementById("Participate_Lucky_Draw_List_tbody").innerHTML = "";
+                let List_tbody = ''
+                for (var i = 0; i < response.Data.length; i++){
+                    List_tbody += '<tr>'+
+                    '<td>'+response.Data[i].Phone+'</td>';
+                    List_tbody +='<td>'+response.Data[i].TambolaTicketNumber+'</td>';
+
+                    List_tbody += '<td><button class="btn btn-primary" onclick=ChooseLuckyDrawUser("'+ response.Data[i].Phone+'")> Choose </button> </td></tr>';
+                }
+                $("#Participate_Lucky_Draw_List_tbody").html(List_tbody);
+
+                $("#luckyWinner").modal("show");
+            } else {
+                alert('Something went wrong.');
+            }
+        }
+    });
+    
+}
+
+// ********************************************************************************************
+var ChooseLuckyDrawUser=function(data){
+    console.log(data)
+    let API_Token = localStorage.getItem('API_Token');
+    // console.log(API_Token);
+    $.ajax({
+        type: "POST",
+        url: "http://13.234.143.20:3005/api/admin/lucky/selectluckydraw",
+        headers: { "authorization": 'Bearer ' + API_Token },
+        data: {"Phone": data},
+        cache: false,
+        success: function (response) {
+            console.log(response)
+            if(response.Success==true){
+                $("#luckyWinner").modal("hide");
+                getLuckDraw_winnerList();
+            }else{
+                alert('Something went wrong.');
+            }
+        }
+    });
+}
 // ********************************************************************************************

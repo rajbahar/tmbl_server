@@ -14,6 +14,7 @@ const JumbleController=require('../app/Controller/JumbleController');
 const TambolaController=require('../app/Controller/TambolaController');
 const LuckyDrawController=require('../app/Controller/LuckyDraw');
 const GuessNextController=require('../app/Controller/GuessNext');
+const CoinsController=require('../app/Controller/CoinsController');
 
 
 const _jwt=new JWT();
@@ -25,6 +26,7 @@ const _jumbleController = new JumbleController();
 const _tambolaController = new TambolaController();
 const _luckydrawController = new LuckyDrawController();
 const _guessnextController = new GuessNextController();
+const _coinsController = new CoinsController();
 
 function routes(app) {
 
@@ -91,6 +93,12 @@ function routes(app) {
     
     router.post("/guess/submitnextnumber",_guessnextController.SubmitGuessNext);
     router.post("/guess/currentround",_guessnextController.CurrentRound);
+
+    
+    router.post("/coins/deletecoins",_coinsController.DeleteCoins);
+    router.post("/coins/updatecoins",_coinsController.UpdateCoins);
+    router.post("/coins/submitcoins",_coinsController.SubmitCoins);
+    router.get("/coins/fetchallcoins",_coinsController.FetchAllCoins);
 
     router.post('/broadcast/quiz',_quizController.BroadcastQuiz)
     router.post('/broadcast/guess',_guessnextController.BroadcastGuessNext)
