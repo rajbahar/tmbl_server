@@ -49,6 +49,7 @@ class TambolaService{
             result = DatatoUpload;
         }
         
+        // add signup coin pedding
         return {Success:true,Data:result}
     }
 
@@ -76,9 +77,21 @@ class TambolaService{
                     if((a.length-3) >=5)
                     {
                         result.TambolaWin.fastfive =true;
-                        yield UserDetails.findOneAndDelete({Phone:data.Phone,Session:sessionresult.Session},
+                        yield UserDetails.findOneAndUpdate({Phone:data.Phone,Session:sessionresult.Session},
                             { $set: { TambolaWin:result.TambolaWin } 
                         });
+
+                        //add jaldi coins 
+                        let result = yield User.findOne({
+                            Phone: data.Phone
+                        });
+                        let c= yield Coins.findOne({ Game: 'JaldiFive'});
+                        if(c){
+                         result.coins= (result.coins+c.Coins)
+                        }
+                        yield result.save();
+
+
                         return {Success:true,Data:"Early 5 winner"}
                     }
                     else{
@@ -90,9 +103,21 @@ class TambolaService{
                     if(arrayContainsAll(ticketAnnounced,result.TambolaTicket.first))
                     {
                         result.TambolaWin.top =true;
-                        yield UserDetails.findOneAndDelete({Phone:data.Phone,Session:sessionresult.Session},
+                        yield UserDetails.findOneAndUpdate({Phone:data.Phone,Session:sessionresult.Session},
                             { $set: { TambolaWin:result.TambolaWin } 
                         });
+
+                        //add top coins 
+                        let result = yield User.findOne({
+                            Phone: data.Phone
+                        });
+                        let c= yield Coins.findOne({ Game: 'TopRow'});
+                        if(c){
+                         result.coins= (result.coins+c.Coins)
+                        }
+                        yield result.save();
+
+
                         return {Success:true,Data:"Top row winner"}
                     }
                     else{
@@ -105,9 +130,21 @@ class TambolaService{
                     if(arrayContainsAll(ticketAnnounced,result.TambolaTicket.second))
                     {
                         result.TambolaWin.middle =true;
-                        yield UserDetails.findOneAndDelete({Phone:data.Phone,Session:sessionresult.Session},
+                        yield UserDetails.findOneAndUpdate({Phone:data.Phone,Session:sessionresult.Session},
                             { $set: { TambolaWin:result.TambolaWin } 
                         });
+
+                        //add middle coins
+                        let result = yield User.findOne({
+                            Phone: data.Phone
+                        });
+                        let c= yield Coins.findOne({ Game: 'MiddleRow'});
+                        if(c){
+                         result.coins= (result.coins+c.Coins)
+                        }
+                        yield result.save();
+
+
                         return {Success:true,Data:"Middle row winner"}
                     }
                     else{
@@ -120,9 +157,21 @@ class TambolaService{
                     if(arrayContainsAll(ticketAnnounced,result.TambolaTicket.third))
                     {
                         result.TambolaWin.bottom =true;
-                        yield UserDetails.findOneAndDelete({Phone:data.Phone,Session:sessionresult.Session},
+                        yield UserDetails.findOneAndUpdate({Phone:data.Phone,Session:sessionresult.Session},
                             { $set: { TambolaWin:result.TambolaWin } 
                         });
+
+                        //add bottom coins 
+                        let result = yield User.findOne({
+                            Phone: data.Phone
+                        });
+                        let c= yield Coins.findOne({ Game: 'BottomRow'});
+                        if(c){
+                         result.coins= (result.coins+c.Coins)
+                        }
+                        yield result.save();
+
+
                         return {Success:true,Data:"Bottom row winner"}
                     }
                     else{
@@ -156,53 +205,64 @@ class TambolaService{
                     console.log(cornerArray);
                     if(arrayContainsAll(ticketAnnounced,cornerArray)){
                         result.TambolaWin.corners =true;
-                        yield UserDetails.findOneAndDelete({Phone:data.Phone,Session:sessionresult.Session},
+                        yield UserDetails.findOneAndUpdate({Phone:data.Phone,Session:sessionresult.Session},
                             { $set: { TambolaWin:result.TambolaWin } 
                         });
+
+                        // add corners coins 
+                        let result = yield User.findOne({
+                            Phone: data.Phone
+                        });
+                        let c= yield Coins.findOne({ Game: 'Corners'});
+                        if(c){
+                         result.coins= (result.coins+c.Coins)
+                        }
+                        yield result.save();
+
                         return {Success:true,Data:"4 corners winner"}
                     }
                     else
                         return {Success:false,Data:"Match Criteria fail"}                      
-            case "Cross":
-                            console.log("Cross")
-                            var topleftcorner = 0;
-                            var toprightcorner = 0;
-                            var bottomleftcorner = 0;
-                            var bottomrightcorner = 0;
-                            var centre = 0;
-                            result.TambolaTicket.first.forEach(element => {
-                                if(element!= 0)
-                                {
-                                    if(topleftcorner == 0)
-                                        topleftcorner = element;
-                                    toprightcorner = element;
-                                }                        
-                            });
-                            var i =0;
-                            result.TambolaTicket.second.forEach(element => {
-                                if(element!= 0)
-                                {
-                                    i++;
-                                    if(i==3)
-                                        centre = element;
-                                }                        
-                            });
+            // case "Cross":
+            //                 console.log("Cross")
+            //                 var topleftcorner = 0;
+            //                 var toprightcorner = 0;
+            //                 var bottomleftcorner = 0;
+            //                 var bottomrightcorner = 0;
+            //                 var centre = 0;
+            //                 result.TambolaTicket.first.forEach(element => {
+            //                     if(element!= 0)
+            //                     {
+            //                         if(topleftcorner == 0)
+            //                             topleftcorner = element;
+            //                         toprightcorner = element;
+            //                     }                        
+            //                 });
+            //                 var i =0;
+            //                 result.TambolaTicket.second.forEach(element => {
+            //                     if(element!= 0)
+            //                     {
+            //                         i++;
+            //                         if(i==3)
+            //                             centre = element;
+            //                     }                        
+            //                 });
         
-                            result.TambolaTicket.third.forEach(element => {
-                                if(element!= 0)
-                                {
-                                    if(bottomleftcorner == 0)
-                                        bottomleftcorner = element;
-                                    bottomrightcorner = element;
-                                }                        
-                            });
+            //                 result.TambolaTicket.third.forEach(element => {
+            //                     if(element!= 0)
+            //                     {
+            //                         if(bottomleftcorner == 0)
+            //                             bottomleftcorner = element;
+            //                         bottomrightcorner = element;
+            //                     }                        
+            //                 });
         
-                            var crossArray = [topleftcorner,toprightcorner,centre,bottomleftcorner,bottomrightcorner]
-                            console.log(crossArray);
-                            if(arrayContainsAll(ticketAnnounced,crossArray))
-                                return {Success:true,Data:"cross winner"}
-                            else
-                                return {Success:false,Data:"Match Criteria fail"}                      
+            //                 var crossArray = [topleftcorner,toprightcorner,centre,bottomleftcorner,bottomrightcorner]
+            //                 console.log(crossArray);
+            //                 if(arrayContainsAll(ticketAnnounced,crossArray))
+            //                     return {Success:true,Data:"cross winner"}
+            //                 else
+            //                     return {Success:false,Data:"Match Criteria fail"}                      
             case "FullHouse":
                     console.log("Full Housie")
                     if(arrayContainsAll(ticketAnnounced,result.TambolaTicket.first) && 
@@ -210,9 +270,20 @@ class TambolaService{
                         arrayContainsAll(ticketAnnounced,result.TambolaTicket.third))
                     {
                         result.TambolaWin.housie =true;
-                        yield UserDetails.findOneAndDelete({Phone:data.Phone,Session:sessionresult.Session},
+                        yield UserDetails.findOneAndUpdate({Phone:data.Phone,Session:sessionresult.Session},
                             { $set: { TambolaWin:result.TambolaWin } 
                         });
+
+                        // add housie coins 
+                        let result = yield User.findOne({
+                            Phone: data.Phone
+                        });
+                        let c= yield Coins.findOne({ Game: 'FullHousie'});
+                        if(c){
+                         result.coins= (result.coins+c.Coins)
+                        }
+                        yield result.save();
+
                         return {Success:true,Data:"Full House winner"}
                     }
                     else{

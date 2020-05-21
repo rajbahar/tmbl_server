@@ -31,6 +31,18 @@ class LuckyDrawService{
             },{ $set: { LuckyDraw:{opt:true,win:true} } });
 
         let updateresult=yield UserDetails.findOne({ Phone:data.Phone,Session:sessionresult.Session});
+
+        //add lucky draw coins 
+        let result = yield User.findOne({
+            Phone: data.Phone
+        });
+        let c= yield Coins.findOne({ Game: 'LuckyDraw'});
+        if(c){
+         result.coins= (result.coins+c.Coins)
+        }
+        yield result.save();
+
+
         return {Success:true,Data:updateresult}
     }
     

@@ -92,12 +92,23 @@ class JumbleService{
             userresult.Jumble= [];
         if(data.answer == result.answer)
         {
+
                 userresult.Jumble.push({_id:result._id,answer:true})
                 console.log(userresult.Jumble);
                 let updateresult = yield UserDetails.findOneAndUpdate({
                     Phone:data.Phone,Session:sessionresult.Session
                 },{ $set: { Jumble: userresult.Jumble } });
             
+                //add jumble coins
+                let result = yield User.findOne({
+                    Phone: data.Phone
+                });
+                let c= yield Coins.findOne({ Game: 'Jumble'});
+                if(c){
+                 result.coins= (result.coins+c.Coins)
+                }
+                yield result.save();
+
             return {Success:true,Data:"Correct Answer"}
         }
         else

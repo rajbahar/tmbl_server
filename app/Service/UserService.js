@@ -1,6 +1,7 @@
 'use strict'
 var otpGenerator = require('otp-generator')
 const User = require('../Model/User');
+const Coins=require('../Model/Coins');
 const SessionDetails=require('../Model/Session');
 const UserDetails=require('../Model/UserDetails');
 
@@ -28,7 +29,7 @@ class UserService {
     *Register(data) {
         // console.log(data)
         let referral_User= yield User.findOne({_id:data.R_id});
-
+   
         delete data.R_id;
         // console.log(data)
         let result = yield User.findOne({
@@ -44,6 +45,14 @@ class UserService {
         let OTP = otpGenerator.generate(4, { upperCase: false, specialChars: false, alphabets: false, digits: true });
         result.OTP = '1234';
 
+        if(referral_User){
+            // console.log(referral_User)
+           let c= yield Coins.findOne({ Game: 'Referral'});
+           if(c){
+            // console.log('***********',c)
+            result.coins= (result.coins+c.Coins)
+           }
+        }
         yield result.save();
 
         return { Success: true, Data: result }
@@ -107,7 +116,7 @@ class UserService {
         if (!result) {
             return { Success: false, Data: "User not found." }
         }
-        let link='http://13.234.143.20:3005?id='+result._id;
+        let link='http://13.234.143.20:3005/register.html?id='+result._id;
         return { Success: true, Data: link }
     }
 

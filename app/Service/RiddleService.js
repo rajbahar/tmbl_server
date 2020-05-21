@@ -90,6 +90,16 @@ class RiddleService{
                 let updateresult = yield UserDetails.findOneAndUpdate({
                     Phone:data.Phone,Session:sessionresult.Session
                 },{ $set: { Riddle: userresult.Riddle } });
+
+                //add riddle coin
+                let result = yield User.findOne({
+                    Phone: data.Phone
+                });
+                let c= yield Coins.findOne({ Game: 'Riddle'});
+                if(c){
+                 result.coins= (result.coins+c.Coins)
+                }
+                yield result.save();
             
             return {Success:true,Data:"Correct Answer"}
         }
