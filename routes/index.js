@@ -34,6 +34,7 @@ function routes(app) {
 
     router.post("/login",_userController.Login);
     router.post("/register",_userController.Register);
+ router.post("/register/simulate",_userController.RegisterSimuLate);
     router.post("/verify/otp",_userController.OTP_verify);
 
     router.post("/admin/login",_adminController.Login);
@@ -86,6 +87,8 @@ function routes(app) {
     
     router.post("/session/newsession",_tambolaController.CreateNewSession);
     router.post("/tambola/tambolalive",_tambolaController.TambolaLive);
+    router.post("/tambola/tambolasequencecheck",_tambolaController.TambolaSequenceCheck);
+    
 
     router.post("/lucky/selectluckydraw",_luckydrawController.SelectLuckyDraw);
     router.get("/lucky/fetchoptedluckydraw",_luckydrawController.FetchOptedLuckyDraw);

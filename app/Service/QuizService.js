@@ -37,6 +37,9 @@ class QuizService{
     }
 
     *SubmitQuiz(data){
+
+        data.options=data.options.split(',');
+        // console.log(data)
          let result = new Quiz(data);
          yield result.save();
 

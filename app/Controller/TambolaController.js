@@ -1,6 +1,8 @@
 'use strict';
 const TambolaService=require('../Service/TambolaService');
+const CoinsService=require('../Service/CoinsService');
 const _TambolaService = new TambolaService();
+const _coinsService = new CoinsService();
 
 class TambolaController{
     constructor(){}
@@ -15,6 +17,10 @@ class TambolaController{
     *ValidateTicket(request,response){
         const data=request.body;
         const result= yield _TambolaService.ValidateTicket(data);
+        if(result.Success){
+            let quota=yield _coinsService.FetchAllCoins();
+            response.io.emit('onQuota',quota);
+        }
         response.json(result);
         response.end();
     }
@@ -36,6 +42,13 @@ class TambolaController{
 
     *TambolaAnnounced(request,response){
         const result= yield _TambolaService.TambolaAnnounced();
+        response.json(result);
+        response.end();
+    }
+
+    *TambolaSequenceCheck(request,response){
+        const data=request.body;
+        const result= yield _TambolaService.TambolaSequenceCheck(data);
         response.json(result);
         response.end();
     }

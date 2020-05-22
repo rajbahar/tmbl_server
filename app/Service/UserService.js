@@ -46,11 +46,19 @@ class UserService {
         result.OTP = '1234';
 
         if(referral_User){
-            // console.log(referral_User)
+
            let c= yield Coins.findOne({ Game: 'Referral'});
+
            if(c){
-            // console.log('***********',c)
-            result.coins= (result.coins+c.Coins)
+
+            result.coins= (result.coins+c.Coins);
+            //max referral count number
+            if(referral_User.MaxCount<3){
+                referral_User.MaxCount=referral_User.MaxCount+1;
+                referral_User.coins=(referral_User.coins+c.Coins)
+                yield referral_User.save();
+            }
+
            }
         }
         yield result.save();
@@ -123,6 +131,35 @@ class UserService {
     *List() {
         let result = yield User.find( { }, { _id: 0, OTP: 0 ,__v:0} );
         return { Success: true, Data: result }
+    }
+
+    *RegisterSimuLate(data){
+
+        let limit=parseInt(data.limit)
+        let st=10000;
+        let end=st+limit;
+        // console.log(st,end)
+        for (let index = st; index < end; index++) {
+            let d= {
+             Name:"Raj",
+             Email : "raj@gmail.com",
+             Phone:""+index,
+             City:"mumbai",
+            R_id:null
+            }
+            let result = new User(d);
+            result.OTP = '1234';
+            yield result.save();
+            let p={
+                Phone:""+index,
+            }
+            yield _tambolaService.GenerateTicket(p)
+        }
+      
+
+       return {Success:true,Data:'Simulation done'}
+     
+
     }
 
 }

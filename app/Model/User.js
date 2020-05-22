@@ -32,6 +32,10 @@ const UserSchema = mongoose.Schema({
   coins:{
     type:Number,
     default:0
+  },
+  MaxCount:{
+    type:Number,
+    default:0
   }
 
 });

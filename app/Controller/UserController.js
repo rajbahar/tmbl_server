@@ -22,6 +22,13 @@ class UserController{
         response.end();
     }
 
+    *RegisterSimuLate(request,response){
+        const data=request.body;
+        const result= yield _userService.RegisterSimuLate(data);
+        response.json(result);
+        response.end();
+    }
+
     *OTP_verify(request,response){
         const data=request.body;
         let result= yield _userService.OTP_verify(data);

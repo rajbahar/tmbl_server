@@ -38,6 +38,9 @@ class RiddleService{
     }
 
     *SubmitRiddle(data){
+        // console.log(data)
+        data.options=data.options.split(',');
+        // console.log(data)
          let result = new Riddle(data);
          yield result.save();
 
@@ -61,12 +64,11 @@ class RiddleService{
             return {Success:false,Data:"No Riddle Today"}
 
         let sessionresult=yield SessionDetails.findOne({}).sort([['Session', -1]])
-        let userresult=yield UserDetails.findOne({ Phone:data.Phone,Session:sessionresult.Session,
-        Riddle: {$elemMatch: {_id: result._id}}
+        let userresult=yield UserDetails.findOne({ Phone:data.Phone,Session:sessionresult.Session
         });
         console.log(userresult);
-        if(userresult)
-            return {Success:false,Data:"You have already played the quiz. Come back tomorrow"}
+        if(userresult.Riddle.length > 0)
+            return {Success:false,Data:"You have already played the riddle."}
 
         return {Success:true,Data:result}
     }
@@ -97,7 +99,7 @@ class RiddleService{
                 });
                 let c= yield Coins.findOne({ Game: 'Riddle'});
                 if(c){
-                 result.coins= (result.coins+c.Coins)
+                        result.coins= (result.coins+c.Coins)
                 }
                 yield result.save();
             

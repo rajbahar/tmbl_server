@@ -61,15 +61,18 @@ getTambolaAnnounced();
 // ********************************************************************************************
 var SubmitQuiz =function(){
     var data = {
-        options: [],
+        options: "",
         question: "",
         answer: "",
         submittedBy: "Admin"
     };
+    
+    let opt = []
+    opt.push($("#opt_1").val());
+    opt.push($("#opt_2").val());
+    opt.push($("#opt_3").val());
 
-    data.options.push($("#opt_1").val());
-    data.options.push($("#opt_2").val());
-    data.options.push($("#opt_3").val());
+    data.options = opt.toString();
 
     data.question=$("#question_text").val();
     data.answer=$("#answer_text").val();
