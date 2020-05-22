@@ -106,7 +106,7 @@ class TambolaService {
                 }
             case "Top":
                 console.log("Top Row")
-                let c = yield Coins.findOne({ Game: 'TopRow' });
+                 c = yield Coins.findOne({ Game: 'TopRow' });
                 if (c.Quota < 1) {
                     return { Success: false, Data: 'Quota Finished' }
                 }
@@ -140,7 +140,7 @@ class TambolaService {
                 }
             case "Middle":
                 console.log("Middle Row")
-                let c = yield Coins.findOne({ Game: 'MiddleRow' });
+                 c = yield Coins.findOne({ Game: 'MiddleRow' });
                 if (c.Quota < 1) {
                     return { Success: false, Data: 'Quota Finished' }
                 }
@@ -174,7 +174,7 @@ class TambolaService {
                 }
             case "Bottom":
                 console.log("Bottom Row")
-                let c = yield Coins.findOne({ Game: 'BottomRow' });
+                 c = yield Coins.findOne({ Game: 'BottomRow' });
                 if (c.Quota < 1) {
                     return { Success: false, Data: 'Quota Finished' }
                 }
@@ -210,7 +210,7 @@ class TambolaService {
                 }
             case "Corners":
                 console.log("4 Corners")
-                let c = yield Coins.findOne({ Game: 'Corners' });
+                 c = yield Coins.findOne({ Game: 'Corners' });
                 if (c.Quota < 1) {
                     return { Success: false, Data: 'Quota Finished' }
                 }
@@ -304,7 +304,7 @@ class TambolaService {
             //                     return {Success:false,Data:"Match Criteria fail"}                      
             case "FullHouse":
                 console.log("Full Housie")
-                let c = yield Coins.findOne({ Game: 'FullHousie' });
+                 c = yield Coins.findOne({ Game: 'FullHousie' });
                 if (c.Quota < 1) {
                     return { Success: false, Data: 'Quota Finished' }
                 }

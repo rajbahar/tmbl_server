@@ -1,0 +1,1071 @@
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at compileFunction (<anonymous>)
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at compileFunction (<anonymous>)
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:109
+                let c = yield Coins.findOne({ Game: 'TopRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:143
+                let c = yield Coins.findOne({ Game: 'MiddleRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:143
+                let c = yield Coins.findOne({ Game: 'MiddleRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:143
+                let c = yield Coins.findOne({ Game: 'MiddleRow' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:213
+                let c = yield Coins.findOne({ Game: 'Corners' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+E:\PROJECTS\Tamboola\app\Service\TambolaService.js:307
+                let c = yield Coins.findOne({ Game: 'FullHousie' });
+                    ^
+
+SyntaxError: Identifier 'c' has already been declared
+    at wrapSafe (internal/modules/cjs/loader.js:1072:16)
+    at Module._compile (internal/modules/cjs/loader.js:1122:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)
+    at Object.<anonymous> (E:\PROJECTS\Tamboola\app\Controller\TambolaController.js:2:22)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at Module.Hook._require.Module.require (C:\Users\Desktop\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:80:39)
+    at require (internal/modules/cjs/helpers.js:77:18)

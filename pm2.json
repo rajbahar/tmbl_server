@@ -4,6 +4,7 @@
         "script": "bin/www",
         "out_file": "log/Output.log",
         "error_file": "log/Error.log",
-        "restart_delay": 5000
+        "restart_delay": 5000,
+        "instances":-1
     }]
 }
