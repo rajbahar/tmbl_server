@@ -1,4 +1,5 @@
 'use strict'
+
 const Coins= require('../Model/Coins');
 const UserDetails = require('../Model/UserDetails');
 const User = require('../Model/User');

@@ -1,5 +1,5 @@
 'use strict'
-
+const User= require('../Model/User');
 const Riddle=require('../Model/Riddle');
 const Coins=require('../Model/Coins');
 const moment = require('moment');
@@ -95,14 +95,14 @@ class RiddleService{
                 },{ $set: { Riddle: userresult.Riddle } });
 
                 //add riddle coin
-                let result = yield User.findOne({
+                let existingUser = yield User.findOne({
                     Phone: data.Phone
                 });
                 let c= yield Coins.findOne({ Game: 'Riddle'});
                 if(c){
-                        result.coins= (result.coins+c.Coins)
+                    existingUser.coins= (existingUser.coins+c.Coins)
                 }
-                yield result.save();
+                yield existingUser.save();
             
             return {Success:true,Data:"Correct Answer"}
         }

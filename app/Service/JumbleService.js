@@ -1,6 +1,7 @@
 'use strict'
 
 const Coins= require('../Model/Coins');
+const User= require('../Model/User');
 const Jumble= require('../Model/Jumble');
 const shuffle = require('shuffle-words');
 const moment = require('moment');
@@ -101,14 +102,14 @@ class JumbleService{
                 },{ $set: { Jumble: userresult.Jumble } });
             
                 //add jumble coins
-                let result = yield User.findOne({
+                let existingUser = yield User.findOne({
                     Phone: data.Phone
                 });
                 let c= yield Coins.findOne({ Game: 'Jumble'});
                 if(c){
-                 result.coins= (result.coins+c.Coins)
+                    existingUser.coins= (existingUser.coins+c.Coins)
                 }
-                yield result.save();
+                yield existingUser.save();
 
             return {Success:true,Data:"Correct Answer"}
         }
