@@ -1,5 +1,6 @@
 'use strict'
 
+const Coins= require('../Model/Coins');
 const Jumble= require('../Model/Jumble');
 const shuffle = require('shuffle-words');
 const moment = require('moment');
@@ -113,13 +114,13 @@ class JumbleService{
         }
         else
         {
-            userresult.Jumble.push({_id:result._id,answer:true})
+            userresult.Jumble.push({_id:result._id,answer:false})
             console.log(userresult.Jumble);
             let updateresult = yield UserDetails.findOneAndUpdate({
                 Phone:data.Phone,Session:sessionresult.Session
             },{ $set: { Jumble: userresult.Jumble } });
             
-            return{Success:false,Data:"Wrong Answer"}
+            return{Success:false,Data:"OPPS! You Got the Wrong Answer"}
         }
     }
 }

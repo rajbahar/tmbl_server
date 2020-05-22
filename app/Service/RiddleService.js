@@ -1,6 +1,7 @@
 'use strict'
 
 const Riddle=require('../Model/Riddle');
+const Coins=require('../Model/Coins');
 const moment = require('moment');
 const SessionDetails=require('../Model/Session');
 const UserDetails=require('../Model/UserDetails');
@@ -107,13 +108,13 @@ class RiddleService{
         }
         else
         {
-            userresult.Riddle.push({_id:result._id,answer:true})
+            userresult.Riddle.push({_id:result._id,answer:false})
             console.log(userresult.Riddle);
             let updateresult = yield UserDetails.findOneAndUpdate({
                 Phone:data.Phone,Session:sessionresult.Session
             },{ $set: { Riddle: userresult.Riddle } });
             
-            return{Success:false,Data:"Wrong Answer"}
+            return{Success:false,Data:"OPPS! You Got the Wrong Answer"}
         }
     }
 }
