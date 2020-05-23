@@ -36,7 +36,8 @@ const UserSchema = mongoose.Schema({
   MaxCount:{
     type:Number,
     default:0
-  }
+  },
+  AllCoins:[{Game: String,Coin:Number}]
 
 });
 

@@ -15,6 +15,7 @@ const TambolaController=require('../app/Controller/TambolaController');
 const LuckyDrawController=require('../app/Controller/LuckyDraw');
 const GuessNextController=require('../app/Controller/GuessNext');
 const CoinsController=require('../app/Controller/CoinsController');
+const ZoneController=require('../app/Controller/ZoneController');
 
 
 const _jwt=new JWT();
@@ -27,6 +28,7 @@ const _tambolaController = new TambolaController();
 const _luckydrawController = new LuckyDrawController();
 const _guessnextController = new GuessNextController();
 const _coinsController = new CoinsController();
+const _zoneController = new ZoneController();
 
 function routes(app) {
 
@@ -51,6 +53,8 @@ function routes(app) {
     // });
 
     router.get('/user/profile',_userController.GetProfile);
+    router.get('/user/total/earning',_userController.GetEarning);
+    router.get('/user/coins/details',_userController.GetCoinsDetails);
     router.get('/getreferrals/link',_userController.GetReferralLink);
     router.post("/jumble/fetchonejumble",_jumbleController.FetchOneJumble);
     router.post("/jumble/validatejumble",_jumbleController.ValidateJumble);
@@ -102,6 +106,9 @@ function routes(app) {
     router.post("/coins/updatecoins",_coinsController.UpdateCoins);
     router.post("/coins/submitcoins",_coinsController.SubmitCoins);
     router.get("/coins/fetchallcoins",_coinsController.FetchAllCoins);
+
+    router.post("/zone/create",_zoneController.create);
+    router.get("/zone/list",_zoneController.List);
 
     router.post('/broadcast/quiz',_quizController.BroadcastQuiz)
     router.post('/broadcast/guess',_guessnextController.BroadcastGuessNext)

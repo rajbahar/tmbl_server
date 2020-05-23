@@ -107,7 +107,19 @@ class JumbleService{
                 });
                 let c= yield Coins.findOne({ Game: 'Jumble'});
                 if(c){
-                    existingUser.coins= (existingUser.coins+c.Coins)
+                    existingUser.coins= (existingUser.coins+c.Coins);
+
+                    let JumbleFound=false;
+                    for (let index = 0; index < existingUser.AllCoins.length; index++) {
+                        const element = existingUser.AllCoins[index];
+                        if (element.Game == 'Jumble') {
+                            JumbleFound=true;
+                            existingUser.AllCoins[index].Coin = existingUser.AllCoins[index].Coin + c.Coins;
+                        }
+                    }
+                    if(JumbleFound==false){
+                        existingUser.AllCoins.push({ Game: 'Jumble', Coin: c.Coins });
+                    }
                 }
                 yield existingUser.save();
 

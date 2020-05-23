@@ -1,6 +1,6 @@
 'use strict'
 
-const Coins= require('../Model/Coins');
+const Coins = require('../Model/Coins');
 const UserDetails = require('../Model/UserDetails');
 const User = require('../Model/User');
 const SessionDetails = require('../Model/Session');
@@ -17,7 +17,7 @@ class TambolaService {
         if (!userresult)
             return { Success: false, Data: "User not present" }
         let sessionresult = yield SessionDetails.findOne({}).sort([['Session', -1]])
-        let result = yield UserDetails.findOne({ Phone: data.Phone, Session: sessionresult.Session }, { Phone: 1, TambolaTicket: 1, TambolaTicketNumber: 1 });
+        let result = yield UserDetails.findOne({ Phone: data.Phone, Session: sessionresult.Session });
 
         var NextTicketNo = 1;
         var TambolaTicketNo = yield UserDetails.findOne({}, { TambolaTicketNumber: 1 }).sort([['TambolaTicketNumber', -1]]);
@@ -56,7 +56,7 @@ class TambolaService {
         let sessionresult = yield SessionDetails.findOne({}).sort([['Session', -1]])
         let tambolaLiveData = yield TambolaLiveDetails.findOne({ Session: sessionresult.Session });
 
-        let result = yield UserDetails.findOne({ Phone: data.Phone, Session: sessionresult.Session }, { Phone: 1, TambolaTicket: 1 });
+        let result = yield UserDetails.findOne({ Phone: data.Phone, Session: sessionresult.Session }, { Phone: 1, TambolaTicket: 1, TambolaWin: 1 });
         var ticketAnnounced = [0];
         ticketAnnounced = ticketAnnounced.concat(tambolaLiveData.Announced);
         console.log(ticketAnnounced);
@@ -64,11 +64,14 @@ class TambolaService {
             return { Success: false, Data: "Ticket not found" }
         }
         console.log(result.TambolaTicket);
+        let c = null;
         switch (data.Match) {
             case "Early5":
                 console.log("Early 5")
 
-                let c = yield Coins.findOne({ Game: 'JaldiFive' });
+                if(result.TambolaWin.fastfive)return {Success:false,Data:'User already claimed'}
+
+                c = yield Coins.findOne({ Game: 'JaldiFive' });
                 if (c.Quota < 1) {
                     return { Success: false, Data: 'Quota Finished' }
                 }
@@ -99,6 +102,8 @@ class TambolaService {
                     yield existingUser.save();
 
 
+                    yield result.save();
+
                     return { Success: true, Data: "Early 5 winner" }
                 }
                 else {
@@ -106,7 +111,8 @@ class TambolaService {
                 }
             case "Top":
                 console.log("Top Row")
-                 c = yield Coins.findOne({ Game: 'TopRow' });
+                if(result.TambolaWin.top)return {Success:false,Data:'User already claimed'}
+                c = yield Coins.findOne({ Game: 'TopRow' });
                 if (c.Quota < 1) {
                     return { Success: false, Data: 'Quota Finished' }
                 }
@@ -132,7 +138,7 @@ class TambolaService {
                     }
                     yield existingUser.save();
 
-
+                    yield result.save();
                     return { Success: true, Data: "Top row winner" }
                 }
                 else {
@@ -140,7 +146,8 @@ class TambolaService {
                 }
             case "Middle":
                 console.log("Middle Row")
-                 c = yield Coins.findOne({ Game: 'MiddleRow' });
+                if(result.TambolaWin.middle)return {Success:false,Data:'User already claimed'}
+                c = yield Coins.findOne({ Game: 'MiddleRow' });
                 if (c.Quota < 1) {
                     return { Success: false, Data: 'Quota Finished' }
                 }
@@ -156,16 +163,16 @@ class TambolaService {
                     let existingUser = yield User.findOne({
                         Phone: data.Phone
                     });
-                  
+
                     if (c) {
-                       
+
                         existingUser.coins = (existingUser.coins + c.Coins)
-                            c.Quota = c.Quota - 1;
-                            yield c.save();
-                       
+                        c.Quota = c.Quota - 1;
+                        yield c.save();
+
                     }
                     yield existingUser.save();
-
+                    yield result.save();
 
                     return { Success: true, Data: "Middle row winner" }
                 }
@@ -174,7 +181,8 @@ class TambolaService {
                 }
             case "Bottom":
                 console.log("Bottom Row")
-                 c = yield Coins.findOne({ Game: 'BottomRow' });
+                if(result.TambolaWin.bottom)return {Success:false,Data:'User already claimed'}
+                c = yield Coins.findOne({ Game: 'BottomRow' });
                 if (c.Quota < 1) {
                     return { Success: false, Data: 'Quota Finished' }
                 }
@@ -192,16 +200,16 @@ class TambolaService {
                     let existingUser = yield User.findOne({
                         Phone: data.Phone
                     });
-                  
+
                     if (c) {
-                       
+
                         existingUser.coins = (existingUser.coins + c.Coins)
-                            c.Quota = c.Quota - 1;
-                            yield c.save();
-                        
+                        c.Quota = c.Quota - 1;
+                        yield c.save();
+
                     }
                     yield existingUser.save();
-
+                    yield result.save();
 
                     return { Success: true, Data: "Bottom row winner" }
                 }
@@ -210,7 +218,10 @@ class TambolaService {
                 }
             case "Corners":
                 console.log("4 Corners")
-                 c = yield Coins.findOne({ Game: 'Corners' });
+
+                if(result.TambolaWin.corners)return {Success:false,Data:'User already claimed'}
+
+                c = yield Coins.findOne({ Game: 'Corners' });
                 if (c.Quota < 1) {
                     return { Success: false, Data: 'Quota Finished' }
                 }
@@ -248,15 +259,16 @@ class TambolaService {
                     let existingUser = yield User.findOne({
                         Phone: data.Phone
                     });
-                   
+
                     if (c) {
-                       
+
                         existingUser.coins = (existingUser.coins + c.Coins)
-                            c.Quota = c.Quota - 1;
-                            yield c.save();
-                        
+                        c.Quota = c.Quota - 1;
+                        yield c.save();
+
                     }
                     yield existingUser.save();
+                    yield result.save();
 
                     return { Success: true, Data: "4 corners winner" }
                 }
@@ -304,7 +316,9 @@ class TambolaService {
             //                     return {Success:false,Data:"Match Criteria fail"}                      
             case "FullHouse":
                 console.log("Full Housie")
-                 c = yield Coins.findOne({ Game: 'FullHousie' });
+                if(result.TambolaWin.housie)return {Success:false,Data:'User already claimed'}
+
+                c = yield Coins.findOne({ Game: 'FullHousie' });
                 if (c.Quota < 1) {
                     return { Success: false, Data: 'Quota Finished' }
                 }
@@ -322,15 +336,16 @@ class TambolaService {
                     let existingUser = yield User.findOne({
                         Phone: data.Phone
                     });
-                  
+
                     if (c) {
-                      
+
                         existingUser.coins = (existingUser.coins + c.Coins)
-                            c.Quota = c.Quota - 1;
-                            yield c.save();
-                        
+                        c.Quota = c.Quota - 1;
+                        yield c.save();
+
                     }
                     yield existingUser.save();
+                    yield result.save();
 
                     return { Success: true, Data: "Full House winner" }
                 }

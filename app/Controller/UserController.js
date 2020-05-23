@@ -48,6 +48,21 @@ class UserController{
         response.end();
     }
 
+    *GetEarning(request,response){
+        const data=request.query;
+        const result= yield _userService.GetEarning(data);
+        response.json(result);
+        response.end();
+    }
+
+    *GetCoinsDetails(request,response){
+        const data=request.query;
+        const result= yield _userService.GetCoinsDetails(data);
+        response.json(result);
+        response.end();
+    }
+
+
     *GetReferralLink(request,response){
 
         const data=request.query;

@@ -100,7 +100,19 @@ class RiddleService{
                 });
                 let c= yield Coins.findOne({ Game: 'Riddle'});
                 if(c){
-                    existingUser.coins= (existingUser.coins+c.Coins)
+                    existingUser.coins= (existingUser.coins+c.Coins);
+
+                    let RiddelFound=false;
+                    for (let index = 0; index < existingUser.AllCoins.length; index++) {
+                        const element = existingUser.AllCoins[index];
+                        if (element.Game == 'Riddel') {
+                            RiddelFound=true;
+                            existingUser.AllCoins[index].Coin = existingUser.AllCoins[index].Coin + c.Coins;
+                        }
+                    }
+                    if(RiddelFound==false){
+                        existingUser.AllCoins.push({ Game: 'Riddel', Coin: c.Coins });
+                    }
                 }
                 yield existingUser.save();
             
