@@ -87,16 +87,16 @@ class TambolaService {
                         });
 
                     //add jaldi coins 
-                    let result = yield User.findOne({
+                    let existingUser = yield User.findOne({
                         Phone: data.Phone
                     });
 
                     if (c) {
-                        result.coins = (result.coins + c.Coins)
+                        existingUser.coins = (existingUser.coins + c.Coins)
                         c.Quota = c.Quota - 1;
                         yield c.save();
                     }
-                    yield result.save();
+                    yield existingUser.save();
 
 
                     return { Success: true, Data: "Early 5 winner" }
@@ -119,18 +119,18 @@ class TambolaService {
                         });
 
                     //add top coins 
-                    let result = yield User.findOne({
+                    let existingUser = yield User.findOne({
                         Phone: data.Phone
                     });
 
                     if (c) {
 
-                        result.coins = (result.coins + c.Coins)
+                        existingUser.coins = (existingUser.coins + c.Coins)
                         c.Quota = c.Quota - 1;
                         yield c.save();
 
                     }
-                    yield result.save();
+                    yield existingUser.save();
 
 
                     return { Success: true, Data: "Top row winner" }
@@ -153,18 +153,18 @@ class TambolaService {
                         });
 
                     //add middle coins
-                    let result = yield User.findOne({
+                    let existingUser = yield User.findOne({
                         Phone: data.Phone
                     });
                   
                     if (c) {
                        
-                            result.coins = (result.coins + c.Coins)
+                        existingUser.coins = (existingUser.coins + c.Coins)
                             c.Quota = c.Quota - 1;
                             yield c.save();
                        
                     }
-                    yield result.save();
+                    yield existingUser.save();
 
 
                     return { Success: true, Data: "Middle row winner" }
@@ -189,18 +189,18 @@ class TambolaService {
                         });
 
                     //add bottom coins 
-                    let result = yield User.findOne({
+                    let existingUser = yield User.findOne({
                         Phone: data.Phone
                     });
                   
                     if (c) {
                        
-                            result.coins = (result.coins + c.Coins)
+                        existingUser.coins = (existingUser.coins + c.Coins)
                             c.Quota = c.Quota - 1;
                             yield c.save();
                         
                     }
-                    yield result.save();
+                    yield existingUser.save();
 
 
                     return { Success: true, Data: "Bottom row winner" }
@@ -245,18 +245,18 @@ class TambolaService {
                         });
 
                     // add corners coins 
-                    let result = yield User.findOne({
+                    let existingUser = yield User.findOne({
                         Phone: data.Phone
                     });
                    
                     if (c) {
                        
-                            result.coins = (result.coins + c.Coins)
+                        existingUser.coins = (existingUser.coins + c.Coins)
                             c.Quota = c.Quota - 1;
                             yield c.save();
                         
                     }
-                    yield result.save();
+                    yield existingUser.save();
 
                     return { Success: true, Data: "4 corners winner" }
                 }
@@ -319,18 +319,18 @@ class TambolaService {
                         });
 
                     // add housie coins 
-                    let result = yield User.findOne({
+                    let existingUser = yield User.findOne({
                         Phone: data.Phone
                     });
                   
                     if (c) {
                       
-                            result.coins = (result.coins + c.Coins)
+                        existingUser.coins = (existingUser.coins + c.Coins)
                             c.Quota = c.Quota - 1;
                             yield c.save();
                         
                     }
-                    yield result.save();
+                    yield existingUser.save();
 
                     return { Success: true, Data: "Full House winner" }
                 }

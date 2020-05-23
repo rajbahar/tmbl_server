@@ -96,7 +96,8 @@ class UserService {
 
     *getUserByID(data) {
         const existing = yield User.findOne({
-            _id: data._id
+            _id: data._id,
+            Phone:data.Phone
         });
         if (existing) {
             
