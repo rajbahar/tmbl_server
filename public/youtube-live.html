@@ -1,0 +1,668 @@
+<html class="no-js" lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title> CliQBola</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#000">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#000">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#000">
+	<link rel="manifest" href="site.webmanifest">
+	<link rel="apple-touch-icon" href="icon.png">
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/app.css">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="">
+	<meta property="og:url" content="">
+</head>
+
+<body>
+	<!--<div id="pageLoader">
+			 <div class="loader">
+				<div class="lds-heart">
+				   <div> <img src="images/logo.svg"> </div>
+				</div>
+			 </div>
+		  </div>-->
+	<header>
+		<a href="javascript:void(0);" class="logo"> <img src="images/cliq-logo.png"> </a>
+		<a href="javascript:void(0);"> <img src="images/logo.png" height="60"> </a>
+		<div class="menu">
+			<div class="menu-bar"> <span class="line1"></span> <span></span> <span class="line3"></span> </div>
+			<nav class="navigation">
+				<div class="menu-bar open"> <span class="line1"></span> <span></span> <span class="line3"></span> </div>
+				<ul class="clearfix">
+					<li><a href="javascript:void(0);"> About CLIQBOLA </a></li>
+					<li><a href="javascript:void(0);"> Hot to play <span>(Rules/T&amp;C) </span> </a></li>
+					<li id="total_earning" onclick="totalEarnings()"><a href="javascript:void(0)">Total Earnings</a></li>
+					<li id="liveStreaMenu"><a href="youtube-live.html">Livestream</a></li>
+					<li id="login"><a href="login.html">Sign In</a></li>
+					<li id="logout" onclick="logout()"><a href="javascript:void(0);">Logout</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<div class="livestream">
+		<iframe width="100%" height="330" src="https://www.youtube.com/embed/3kSbYt5AKJ4" frameborder="0"
+			allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-12">
+				<p class="text-lg mt-5">HERE'S YOUR LUCKY TICKET</p>
+				<div class="fieldset ticket-fieldset">
+					<span id="ticket_Id"> <img src="images/logo-dark.svg" width="35"> </span>
+					<div class="ticket">
+						<!-- <img src="images/ticket.jpg"> -->
+						<table id="myTable" border="1">
+						</table>
+					</div>
+				</div>
+				<div class="limited-slots">
+					<label> Limited Win Slots (Claim it now): </label>
+					<marquee direction="left">
+						<div id="liveticker">
+							This is a sample scrolling text that has scrolls texts to left.</div>
+					</marquee>
+				</div>
+				<div class="tap-claim">
+					<a href="javascript:void(0);" class="btn btn-primary mt-4 disabled" onclick="submitPattern()">Tap to
+						claim </a>
+					<!--<a href="javascript:void(0);"> <label>Tap to Claim </label> Jaldi 5 </a> 
+							<a href="javascript:void(0);"><label>Tap to Claim </label>  Top Line </a> 
+							<a href="javascript:void(0);"> <label>Tap to Claim </label> Middle Line </a> 
+							<a href="javascript:void(0);"> <label>Tap to Claim </label> Bottom Line </a> 
+							<a href="javascript:void(0);"> <label>Tap to Claim </label> Criss Cross </a> 
+							<a href="javascript:void(0);"> <label>Tap to Claim </label> Full House 1 </a> 
+							<a href="javascript:void(0);"> <label>Tap to Claim </label> Full House 2 </a>-->
+				</div>
+				<p id="exceedLimit" class="mt-4"> </p>
+
+				<!--<div class="fieldset">
+						<label class="gray"> Spot Games </label>
+						<div class="play-action spot-games">
+							<a href="javascript:void(0);" data-toggle="modal" data-target="#guessNext"
+								onclick="startTimer()">
+								<span>Guess What Next</span>
+							</a>
+							<a href="javascript:void(0);" data-toggle="modal" data-target="#liveQuestion"
+								onclick="answerLiveQuestion()">
+								<span> Answer Live Question </span>
+							</a>
+						</div>
+					</div>-->
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Pattern Response from API Start-->
+	<div class="modal fade small-popup" id="patternRes" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-body">
+					<h3 id="patternResData"> </h3>
+					<button class="btn btn-primary mt-3" data-dismiss="modal">Keep Playing</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Pattern Response from API End-->
+
+
+
+<!--Total Earnings Popup-->
+	<div class="modal fade" id="totalEarnings" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+			<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+				<h3 class="mb-4">My Total Earnings</h3>
+					<div id="coinBalanceDiv"> 
+						<h4> Coin Balance</h4>
+						<div class="label"> <span> $ </span> <strong> </strong> </div>
+					</div>
+					<div id="zoneDiv" class="mt-5"> 
+						<h4> Coupon Unlocked</h4>
+						<div class="label"> <span> % </span> <strong> </strong> <div class="couponWorth"> Worth INR  <i> </i></div>
+					</div>
+					<div id="earnedCoinList" class="mt-4"> 
+						<h4>Coin Earnings</h4>
+						<ul>
+							
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+
+	<div class="overlay"></div>
+	<script src="http://13.234.143.20:3005/socket.io/socket.io.js"></script>
+	<script src="js/jquery-2.2.3.min.js" defer></script>
+	<script src="js/popper.min.js" defer></script>
+	<script src="js/bootstrap.min.js" defer></script>
+	<script src="js/app.js" defer></script>
+
+
+	<script>
+		let fourcorners = [];
+		let toprow = [];
+		let middlerow = [];
+		let lastrow = [];
+		let fullhouse = [];
+		let AnnouncedNumber = [];
+		var ChanceMissed = [];
+		let Claimed = 0;
+		let Match = null;
+		let userDetails = null;
+		var userDetailsJSON = {};
+		let checker = (arr, target) => target.every(v => arr.includes(v));
+		if (localStorage.getItem("UserDetails") || localStorage.getItem("UserDetails") === "undefined" || localStorage.getItem("UserDetails") === "") {
+			//let ticket_Id = document.getElementById("ticket_Id").innerHTML = JSON.parse(localStorage.getItem('UserDetails')).TambolaTicketNumber;
+			userDetails = localStorage.getItem('UserDetails');
+			console.log(userDetails);
+			generate_table(JSON.parse(userDetails).TambolaTicket);
+
+		}
+
+		function setAnnounced() {
+
+			let user_Token = localStorage.getItem('user_Token');
+			if (localStorage.getItem('ChanceMissed') != null) {
+				ChanceMissed = JSON.parse(localStorage.getItem('ChanceMissed'));
+			}
+			else
+				localStorage.setItem('ChanceMissed', JSON.stringify(ChanceMissed));
+			userDetailsJSON = JSON.parse(userDetails);
+			console.log(userDetailsJSON.TambolaWin);
+			if (userDetailsJSON.TambolaWin.top)
+				Claimed = Claimed + 1;
+			if (userDetailsJSON.TambolaWin.middle)
+				Claimed = Claimed + 1;
+			if (userDetailsJSON.TambolaWin.last)
+				Claimed = Claimed + 1;
+			if (userDetailsJSON.TambolaWin.corners)
+				Claimed = Claimed + 1;
+			if (userDetailsJSON.TambolaWin.fastfive)
+				Claimed = Claimed + 1;
+			if (userDetailsJSON.TambolaWin.housie)
+				Claimed = Claimed + 1;
+
+			console.log(Claimed);
+
+			if (ChanceMissed.includes("gameOver")) {
+				if (Claimed == 0) {
+					$('#exceedLimit').html('<p>Game is Over, Dont worry check </p><a href="javascript:void(0)" class="btn btn-primary" onclick="checkLuckyDraw()"> Lucky Draw </a>')
+				}else{
+					$('#exceedLimit').html('CliQBola game is over. <a href="congratulations.html" class="btn btn-primary"> Check your score</a>')
+				}
+				
+				$('.tap-claim').hide();
+			}
+
+			$.ajax({
+				type: "GET",
+				url: "http://13.234.143.20:3005/api/tambola/tambolaannounced",
+				headers: { "authorization": 'Bearer ' + user_Token },
+				//contentType: "application/json",
+				cache: false,
+				success: function (response) {
+					if (response.Success == true) {
+						if (response.Data != null) {
+							response.Data.Announced.forEach(numberAnnounced => {
+								var element = document.getElementById(numberAnnounced);
+								if (element != null) {
+									console.log(element.innerHTML);
+									element.classList.add("crossed");
+								}
+								//AnnouncedNumber.push(numberAnnounced);
+							});
+							AnnouncedNumber = response.Data.Announced;
+							checkLucky();
+						}
+					} else {
+						console.log(response);
+					}
+				}
+			});
+
+		}
+
+
+		function generate_table(e) {
+			console.log(e);
+			console.log(e.first);
+			console.log(e.second);
+
+			console.log(e.third);
+
+			var table = document.getElementById("myTable");
+			var row = table.insertRow(0);
+			var firstcorner = 0;
+			var lastcorner = 0;
+
+			for (let step = 8; step >= 0; step--) {
+				var cell1 = row.insertCell(0);
+				var currentvalue = e.third[step];
+				if (currentvalue > 0) {
+					lastrow.push(currentvalue);
+					if (lastcorner <= 0)
+						lastcorner = currentvalue;
+					firstcorner = currentvalue;
+					fullhouse.push(currentvalue);
+					cell1.innerHTML = "<div id = " + currentvalue + " class='value'> <img src='images/ticket-icons/" + currentvalue + ".png' /> </div>";
+
+				} else {
+					cell1.innerHTML = "<div id = " + currentvalue + " class='zero'> " + currentvalue + "</div>";
+				}
+
+			}
+			fourcorners.push(firstcorner);
+			fourcorners.push(lastcorner);
+
+			var row = table.insertRow(0);
+			for (let step = 8; step >= 0; step--) {
+				var cell1 = row.insertCell(0);
+				var currentvalue = e.second[step];
+				if (currentvalue > 0) {
+					middlerow.push(currentvalue);
+					fullhouse.push(currentvalue);
+					cell1.innerHTML = "<div id = " + currentvalue + " class='value'>  <img src='images/ticket-icons/" + currentvalue + ".png' /> </div>";
+				} else {
+					cell1.innerHTML = "<div id = " + currentvalue + " class='zero'> " + currentvalue + "</div>";
+				}
+
+			}
+
+			var row = table.insertRow(0);
+			firstcorner = 0;
+			lastcorner = 0;
+
+			for (let step = 8; step >= 0; step--) {
+				var cell1 = row.insertCell(0);
+				var currentvalue = e.first[step];
+				if (currentvalue > 0) {
+					toprow.push(currentvalue);
+					if (lastcorner <= 0)
+						lastcorner = currentvalue;
+					firstcorner = currentvalue;
+					fullhouse.push(currentvalue);
+					cell1.innerHTML = "<div id = " + currentvalue + " class='value'>  <img src='images/ticket-icons/" + currentvalue + ".png' /> </div>";
+				} else {
+					cell1.innerHTML = "<div id = " + currentvalue + " class='zero'> " + currentvalue + "</div>";
+				}
+			}
+			fourcorners.push(firstcorner);
+			fourcorners.push(lastcorner);
+		}
+
+
+		let liveQuestionId = "5ec3c51cfd5b9b35f6734f9";
+		// Get Answer Live Question
+		function answerLiveQuestion() {
+			var data = {};
+			let userPhone = localStorage.getItem('Phone');
+			let user_Token = localStorage.getItem('user_Token');
+			data._id = liveQuestionId;
+			console.log("ID is " + data._id);
+			$.ajax({
+				type: "POST",
+				url: "http://13.234.143.20:3005/api/quiz/fetchonequiz",
+				headers: { "authorization": 'Bearer ' + user_Token },
+				//contentType: "application/json",
+				data: data,
+				cache: false,
+				success: function (response) {
+					if (response.Success == true) {
+						console.log(response);
+						//console.log(response.Token);
+						console.log(response);
+					} else {
+						console.log(response);
+					}
+				}
+			});
+			return false;
+		};
+
+
+		var socket = io.connect('http://13.234.143.20:3005');
+
+		socket.on('connect_error', function (err) {
+			console.log(err);
+		});
+		socket.on('disconnect', function (data) {
+			console.log(data);
+
+		});
+		socket.on('connect', function () {
+			console.log('connect');
+			setAnnounced();
+		});
+
+		socket.on('onQuizEvent', function (data) {
+			let user_Token = localStorage.getItem('user_Token');
+			console.log(data);
+
+			$("#liveQuestion").modal('toggle');
+			console.log('onQuizEvent', data);
+		});
+
+		socket.on('onTambolaLive', function (data) {
+			$('#patternRes').modal('hide');
+			// if(Claimed >= 2){
+			// 	$('#exceedLimit').html('You have clamied 2 patterns already, <a href="congratulations.html" class="btn btn-primary"> Check Your Score</a>')
+			// 	$('.tap-claim').hide();
+			// };
+			if (data == 100) {
+				ChanceMissed.push("gameOver");
+				localStorage.setItem('ChanceMissed', JSON.stringify(ChanceMissed));
+
+				if (Claimed == 0) {
+					$('#exceedLimit').html('<p>You didnot won anything in this Game, Dont worry check </p><a href="javascript:void(0)" class="btn btn-primary" onclick="checkLuckyDraw()"> Lucky Draw </a>')
+				}else{
+					$('#exceedLimit').html('CliQBola game is over. <a href="congratulations.html" class="btn btn-primary"> Check your score</a>')
+				}
+				$('.tap-claim').hide();
+			};
+			console.log('onTambolaLive', data);
+			var element = document.getElementById(data);
+			if (element != null) {
+				console.log(element.innerHTML);
+				element.classList.add("crossed");
+			}
+			AnnouncedNumber.push(data);
+			checkLucky();
+		});
+
+		socket.on('onQuota', function (data) {
+			console.log("On Quote");
+			console.log(data);
+			var livetickerstring = "";
+			data.Data.forEach(element => {
+				if (element.Quota > 0 && element.Game != "LuckyDraw")
+					livetickerstring = livetickerstring + " " + element.Quota + "-" + element.Game + ","
+			});
+
+			var LiveTicker = document.getElementById("liveticker");
+			LiveTicker.innerHTML = livetickerstring;
+		});
+
+		socket.on('onGuessEvent', function (data) {
+			console.log('onGuessEvent', data);
+			$("#guessNext").modal('toggle');
+
+		});
+
+		function checkLucky() {
+			$(".tap-claim a").addClass("disabled");
+			console.log("Checking luck");
+			console.log(Match)
+			if (Match != null) {
+				ChanceMissed.push(Match);
+				localStorage.setItem('ChanceMissed', JSON.stringify(ChanceMissed));
+			}
+			Match = null;
+			console.log(AnnouncedNumber);
+			if (Claimed < 2) {
+
+				if (checker(AnnouncedNumber, toprow) && !userDetailsJSON.TambolaWin.top && !ChanceMissed.includes("Top"))
+					Match = "Top";
+				if (checker(AnnouncedNumber, middlerow) && !userDetailsJSON.TambolaWin.middle && !ChanceMissed.includes("Middle"))
+					Match = "Middle";
+				if (checker(AnnouncedNumber, lastrow) && !userDetailsJSON.TambolaWin.last && !ChanceMissed.includes("Bottom"))
+					Match = "Bottom";
+				if (checker(AnnouncedNumber, fourcorners) && !userDetailsJSON.TambolaWin.corners && !ChanceMissed.includes("Corners"))
+					Match = "Corners";
+				var intersection = fullhouse.filter(element => AnnouncedNumber.includes(element));
+				if (intersection.length == 5 && !userDetailsJSON.TambolaWin.fastfive && !ChanceMissed.includes("Early5"))
+					Match = "Early5";
+			}
+			if (checker(AnnouncedNumber, fullhouse) && !userDetailsJSON.TambolaWin.housie && !ChanceMissed.includes("FullHouse"))
+				Match = "FullHouse";
+
+			if (Match != null) {
+				$(".tap-claim a").removeClass("disabled");
+				console.log(Match);
+			}
+		}
+
+		function submitPattern() {
+			//ajax call acording to pattern
+			//on success add claim+1
+			console.log("submit pattern call");
+			if (Match == null)
+				return false
+			let user_Token = localStorage.getItem('user_Token');
+			let userPhone = localStorage.getItem('Phone');
+			console.log("submitPattern");
+			var data = {};
+			data.Phone = userPhone;
+			data.Match = Match;
+			console.log(data);
+			$.ajax({
+				type: "POST",
+				url: "http://13.234.143.20:3005/api/tambola/validateticket",
+				headers: { "authorization": 'Bearer ' + user_Token },
+				//contentType: "application/json",
+				data: data,
+				cache: false,
+				success: function (response) {
+					if (response.Success == true) {
+						$('#patternRes').modal('show');
+						$('#patternResData').html(response.Data);
+						console.log(response);
+						console.log(userDetailsJSON.TambolaWin);
+						if (Match == "Early5")
+							userDetailsJSON.TambolaWin.fastfive = true;
+						else if (Match == "Top")
+							userDetailsJSON.TambolaWin.top = true;
+						else if (Match == "Middle")
+							userDetailsJSON.TambolaWin.middle = true;
+						else if (Match == "Bottom")
+							userDetailsJSON.TambolaWin.last = true;
+						else if (Match == "Corners")
+							userDetailsJSON.TambolaWin.corners = true;
+						else if (Match == "FullHouse")
+							userDetailsJSON.TambolaWin.housie = true;
+						console.log(userDetailsJSON.TambolaWin);
+						//console.log(response.Token);
+						console.log(response);
+						localStorage.setItem('UserDetails', JSON.stringify(userDetailsJSON));
+						Claimed = Claimed + 1;
+						$(".tap-claim a").addClass("disabled");
+					} else {
+						console.log(response);
+						$('#patternRes').modal('show');
+						$('#patternResData').html(response.Data);
+					}
+				}
+			});
+
+		}
+
+
+
+
+		//Live Quiz form validation		
+		function liveQuizFormValidate() {
+
+			let x = document.forms["riddleForm"]["riddleAnswer"].value;
+			if (x == "") {
+				alert("Please select one answer then submit");
+				return false;
+			}
+		};
+
+		// this is seconds timer 
+		function startTimer() {
+			// counter for OTP
+			//var minutesLabel = document.getElementById("minutes");
+			var secondsLabel = document.getElementById("seconds");
+			var totalSeconds = 0;
+			setInterval(setTime, 1000);
+
+			function setTime() {
+				++totalSeconds;
+				secondsLabel.innerHTML = pad(totalSeconds % 40);
+				//minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+				if (totalSeconds > 39) {
+					$(".count").hide();
+					$("#resend_otp").show();
+					clearInterval(setTime);
+				}
+
+			}
+
+			function pad(val) {
+				var valString = val + "";
+				if (valString.length < 2) {
+					return "0" + valString;
+				} else {
+					return valString;
+				}
+			}
+		}
+		
+		
+		
+		
+		
+		// Coin Balance
+		function totalEarnings() {	
+			let userPhone = localStorage.getItem('Phone');
+			let user_Token = localStorage.getItem('user_Token');
+			var data = {};
+			data.Phone = userPhone;
+			console.log("sent user phone " + userPhone);
+			$.ajax({
+				type: "GET",
+				url: "http://13.234.143.20:3005/api/user/coins/details?Phone="+userPhone,
+				headers: { "authorization": 'Bearer ' + user_Token },
+				//contentType: "application/json",
+				data: data,
+				cache: false,
+				success: function (response) {
+					if (response.Success == true) {
+						$("#totalEarnings").modal("show");
+						$("#totalEarnings #coinBalanceDiv").show();
+						$("#totalEarnings #coinBalanceDiv strong").html(response.Data.coins);
+						
+						var earnedCoinList = "";
+						for (var i = 0; i < response.Data.AllCoins.length; i++) {
+						if (response.Data.AllCoins[i].Coin > 0){
+							earnedCoinList += '<li>' + '<label>' + response.Data.AllCoins[i].Coin + '</label>' + 
+							'<span>'+ response.Data.AllCoins[i].Game + '</span>' + '</li>';
+						}};
+						$("#earnedCoinList ul").html(earnedCoinList);
+						
+						$(".navigation").hide();
+						$(".menu-bar").show();
+						$(".overlay").hide();
+						console.log(response);
+					} else {
+						console.log(response);
+					}
+				}
+			});
+			$.ajax({
+				type: "GET",
+				url: "http://13.234.143.20:3005/api/user/total/earning?Phone="+userPhone,
+				headers: { "authorization": 'Bearer ' + user_Token },
+				//contentType: "application/json",
+				data: data,
+				cache: false,
+				success: function (response) {
+					if (response.Success == true) {
+						$("#totalEarnings").modal("show");
+						$("#totalEarnings #zoneDiv").show();
+						$(".navigation").hide();
+						$(".menu-bar").show();
+						$(".overlay").hide();
+						if(response.Data.CurrentZone == null){
+						$("#totalEarnings #zoneDiv .label").html("No Coupon Activated Yet");
+						}else{
+							$("#totalEarnings #zoneDiv strong").html(response.Data.CurrentZone);
+							$("#totalEarnings #zoneDiv .couponWorth i").html(response.Data.Discount);
+						}
+						console.log(response);
+					} else {
+						console.log(response);
+					}
+				}
+			});
+			return false;
+		};
+
+
+
+
+	// Check Lucky Draw
+		function checkLuckyDraw() {	
+			let userPhone = localStorage.getItem('Phone');
+			let user_Token = localStorage.getItem('user_Token');
+			var data = {};
+			data.Phone = userPhone;
+			console.log("sent user phone " + userPhone);
+			$.ajax({
+				type: "POST",
+				url: "http://13.234.143.20:3005/api/lucky/optluckydraw",
+				headers: { "authorization": 'Bearer ' + user_Token },
+				//contentType: "application/json",
+				data: data,
+				cache: false,
+				success: function (response) {
+				localStorage.setItem('LD', response.Success);
+				window.location.href = "lucky-draw.html";
+				}
+			});
+			return false;
+		};
+
+
+
+
+		// Defining Menu login logout
+		let login_menu = document.getElementById("login")
+		let logout_menu = document.getElementById("logout")
+		let total_earning = document.getElementById("total_earning")
+
+		// Logout function
+		function logout() {
+			localStorage.clear();
+			location.reload();
+		}
+
+		// check token and phone of user else logout
+		if (!localStorage.getItem("user_Token") || localStorage.getItem("user_Token") === "undefined" || localStorage.getItem("user_Token") === "") {
+			window.location.href = "index.html";
+		} else if (!localStorage.getItem("UserDetails") || localStorage.getItem("UserDetails") === "undefined" || localStorage.getItem("UserDetails") === "") {
+			window.location.href = "enter-otp.html";
+		} else if (!localStorage.getItem("Phone") || localStorage.getItem("Phone") === "undefined" || localStorage.getItem("Phone") === "") {
+			window.location.href = "register.html";
+		} else {
+			login_menu.style.display = "none";
+			logout_menu.style.display = "block";
+			total_earning.style.display = "block";
+		};
+
+	</script>
+</body>
+
+</html>

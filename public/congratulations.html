@@ -1,0 +1,126 @@
+<html class="no-js" lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      <title> CliQBola</title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- Chrome, Firefox OS and Opera -->
+      <meta name="theme-color" content="#000">
+      <!-- Windows Phone -->
+      <meta name="msapplication-navbutton-color" content="#000">
+      <!-- iOS Safari -->
+      <meta name="apple-mobile-web-app-status-bar-style" content="#000">
+      <link rel="manifest" href="site.webmanifest">
+      <link rel="apple-touch-icon" href="icon.png">
+      <link rel="shortcut icon" href="favicon.ico">
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/app.css">
+      <meta property="og:type" content="website">
+      <meta property="og:title" content="">
+      <meta property="og:description" content="">
+      <meta property="og:image" content="">
+      <meta property="og:url" content="">
+   </head>
+   <body>
+      <!--<div id="pageLoader">
+         <div class="loader">
+            <div class="lds-heart">
+               <div> <img src="images/logo.svg"> </div>
+            </div>
+         </div>
+      </div>-->
+     <header>
+		<a href="javascript:void(0);" class="logo"> <img src="images/cliq-logo.png"> </a>
+		<a href="javascript:void(0);"> <img src="images/logo.png" height="60"> </a>
+		<div class="menu">
+			<div class="menu-bar"> <span class="line1"></span> <span></span> <span class="line3"></span> </div>
+			<nav class="navigation">
+			<div class="menu-bar open"> <span class="line1"></span> <span></span> <span class="line3"></span> </div>
+				<ul class="clearfix">
+					<li><a href="javascript:void(0);"> About CLIQBOLA </a></li>
+					<li><a href="javascript:void(0);"> Hot to play <span>(Rules/T&amp;C) </span> </a></li>
+					<li id="total_earning"><a href="lucky-draw.html">Total Earnings</a></li>
+					<li id="liveStreaMenu"><a href="youtube-live.html">Livestream</a></li>
+					<li id="login"><a href="login.html">Sign In</a></li>
+					<li id="logout" onclick="logout()"><a href="javascript:void(0);">Logout</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+      <div class="container-fluid">
+         <div class="row">
+            <div class="col-sm-12">
+			   <div class="fieldset"> 
+					<label>Your CliQBola Ticket </label>
+					<div class="ticket"> 
+						<img src="images/ticket.jpg">
+					</div>
+			   </div>
+			   <div class="your-total-points">
+				   <div class="tap-claim"> 
+						<label>1000</label> 
+						<div class="pattern-btn"> 
+							<a href="javascript:void(0);"> 4 Corners </a>
+						</div>
+				   </div>
+				   <div class="tap-claim"> 
+						<label>1000</label> 
+						<div class="pattern-btn"> 
+							<a href="javascript:void(0);"> 2 Spot Games</a>
+						</div>
+				   </div>
+				   <div class="tap-claim"> 
+						<label>2000</label> 
+						<div class="pattern-btn"> 
+							<a href="javascript:void(0);"> 4 Referrals </a>
+						</div>
+				   </div>
+				   <div class="tap-claim"> 
+						<label>No Wins</label> 
+						<div class="pattern-btn"> 
+							<a href="lucky-draw.html"> Click For Lucky Draw </a>
+						</div>
+				   </div>
+			   </div>
+			   
+			   <p> Check your Email/SMS inbox for coupan code </p>
+			   <p> Visit the website &amp; reddem your coupans on 30th May 2020: CLIQ CLIQ Anniversary Sale <a href="https://tatacliq.com"> https://tatacliq.com </a></p>
+			   
+            </div>
+         </div>
+      </div>
+	   
+	  
+	  <div class="overlay"></div>
+      <script src="js/jquery-2.2.3.min.js" defer ></script>
+      <script src="js/popper.min.js" defer ></script>
+      <script src="js/bootstrap.min.js" defer ></script>
+      <script src="js/app.js" defer></script>
+	<script>
+// Defining Menu login logout
+		let login_menu = document.getElementById("login")
+		let logout_menu = document.getElementById("logout")
+		let total_earning = document.getElementById("total_earning")
+		
+		// Logout function
+		function logout(){
+			localStorage.clear();
+			location.reload();
+		}
+
+		// check token and phone of user else logout
+		if (!localStorage.getItem("user_Token") || localStorage.getItem("user_Token") === "undefined" || localStorage.getItem("user_Token") === "") {
+			window.location.href = "index.html";
+		} else if (!localStorage.getItem("UserDetails") || localStorage.getItem("UserDetails") === "undefined" || localStorage.getItem("UserDetails") === "") {
+			window.location.href = "enter-otp.html";
+		} else if (!localStorage.getItem("Phone") || localStorage.getItem("Phone") === "undefined" || localStorage.getItem("Phone") === "") {
+			window.location.href = "register.html";
+		} else {
+			login_menu.style.display = "none";
+			logout_menu.style.display = "block";
+			total_earning.style.display = "block";
+		};
+</script>
+   </body>
+</html>

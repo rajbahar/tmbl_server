@@ -36,25 +36,26 @@ function routes(app) {
 
     router.post("/login",_userController.Login);
     router.post("/register",_userController.Register);
- router.post("/register/simulate",_userController.RegisterSimuLate);
+    router.post("/register/simulate",_userController.RegisterSimuLate);
     router.post("/verify/otp",_userController.OTP_verify);
 
     router.post("/admin/login",_adminController.Login);
     router.post("/admin/register",_adminController.Register);
 
-
+    router.get('/user/delete',_userController.DeleteUser);
   });
 
   
   app.group("/api", router => {
 
-    // router.use(function * (req, res,next) {
-    //   yield _jwt.verifyUserToken(req, res,next)
-    // });
+    router.use(function * (req, res,next) {
+      yield _jwt.verifyUserToken(req, res,next)
+    });
 
     router.get('/user/profile',_userController.GetProfile);
     router.get('/user/total/earning',_userController.GetEarning);
     router.get('/user/coins/details',_userController.GetCoinsDetails);
+    router.get('/get/quota/details',_tambolaController.GetQuataDetails);
     router.get('/getreferrals/link',_userController.GetReferralLink);
     router.post("/jumble/fetchonejumble",_jumbleController.FetchOneJumble);
     router.post("/jumble/validatejumble",_jumbleController.ValidateJumble);
@@ -66,14 +67,15 @@ function routes(app) {
     router.post("/tambola/validateticket",_tambolaController.ValidateTicket);
     router.get("/tambola/tambolaannounced",_tambolaController.TambolaAnnounced);
     router.post("/lucky/optluckydraw",_luckydrawController.OptLuckyDraw);
+    router.post("/lucky/selectluckydraw",_luckydrawController.SelectLuckyDraw);
     router.post("/guess/selectnumber",_guessnextController.SelectGuessNext);
 
   });
 
   app.group("/api/admin", router => {
-    // router.use(function * (req, res,next) {
-    //   yield _jwt.verifyUserToken(req, res,next)
-    // });
+    router.use(function * (req, res,next) {
+      yield _jwt.verifyUserToken(req, res,next)
+    });
     router.get("/quiz/fetchallquiz",_quizController.FetchAllQuiz);
     router.post("/quiz/submitquiz",_quizController.SubmitQuiz);
     router.post("/quiz/deletequiz",_quizController.DeleteQuiz);
@@ -92,6 +94,8 @@ function routes(app) {
     router.post("/session/newsession",_tambolaController.CreateNewSession);
     router.post("/tambola/tambolalive",_tambolaController.TambolaLive);
     router.post("/tambola/tambolasequencecheck",_tambolaController.TambolaSequenceCheck);
+    router.post("/tambola/tambolaanytwo",_tambolaController.TSCAnyTwoPatttern);
+    router.post("/tambola/tsconefullhouse",_tambolaController.TSCOneFullhousePatttern);
     
 
     router.post("/lucky/selectluckydraw",_luckydrawController.SelectLuckyDraw);

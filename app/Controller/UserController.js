@@ -41,9 +41,23 @@ class UserController{
         response.end();
     }
 
+    *ResendOTP(request,response){
+        const data=request.body;
+        const result= yield _userService.ResendOTP(data);
+        response.json(result);
+        response.end();
+    }
+
     *GetProfile(request,response){
         const data=request.query;
         const result= yield _userService.getProfile(data);
+        response.json(result);
+        response.end();
+    }
+
+    *DeleteUser(request,response){
+        const data=request.query;
+        const result= yield _userService.DeleteUser(data);
         response.json(result);
         response.end();
     }

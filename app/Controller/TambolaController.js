@@ -14,6 +14,12 @@ class TambolaController{
         response.end();
     }
 
+    *GetQuataDetails(request,response){
+        let result=yield _coinsService.FetchAllCoins();
+        response.json(result);
+        response.end();
+    }
+
     *ValidateTicket(request,response){
         const data=request.body;
         const result= yield _TambolaService.ValidateTicket(data);
@@ -49,6 +55,20 @@ class TambolaController{
     *TambolaSequenceCheck(request,response){
         const data=request.body;
         const result= yield _TambolaService.TambolaSequenceCheck(data);
+        response.json(result);
+        response.end();
+    }
+
+    *TSCAnyTwoPatttern(request,response){
+        const data=request.body;
+        const result= yield _TambolaService.TSCAnyTwoPatttern(data);
+        response.json(result);
+        response.end();
+    }
+
+    *TSCOneFullhousePatttern(request,response){
+        const data=request.body;
+        const result= yield _TambolaService.TSCOneFullhousePatttern(data);
         response.json(result);
         response.end();
     }

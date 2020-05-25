@@ -102,21 +102,21 @@ class RiddleService{
                 if(c){
                     existingUser.coins= (existingUser.coins+c.Coins);
 
-                    let RiddelFound=false;
+                    let RiddleFound=false;
                     for (let index = 0; index < existingUser.AllCoins.length; index++) {
                         const element = existingUser.AllCoins[index];
-                        if (element.Game == 'Riddel') {
-                            RiddelFound=true;
+                        if (element.Game == 'Riddle') {
+                            RiddleFound=true;
                             existingUser.AllCoins[index].Coin = existingUser.AllCoins[index].Coin + c.Coins;
                         }
                     }
-                    if(RiddelFound==false){
-                        existingUser.AllCoins.push({ Game: 'Riddel', Coin: c.Coins });
+                    if(RiddleFound==false){
+                        existingUser.AllCoins.push({ Game: 'Riddle', Coin: c.Coins });
                     }
                 }
                 yield existingUser.save();
             
-            return {Success:true,Data:"Correct Answer"}
+            return {Success:true,Data:"CONGRATS! YOU HAVE WON "+c.Coins+" COINS"}
         }
         else
         {
@@ -126,7 +126,7 @@ class RiddleService{
                 Phone:data.Phone,Session:sessionresult.Session
             },{ $set: { Riddle: userresult.Riddle } });
             
-            return{Success:false,Data:"OPPS! You Got the Wrong Answer"}
+            return{Success:false,Data:"OOPS! YOU GOT THE WRONG ANSWER"}
         }
     }
 }

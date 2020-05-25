@@ -1,0 +1,200 @@
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title> CliQBola</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#000">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#000">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#000">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="">
+</head>
+<body>
+<!--<div id="pageLoader">
+        <div class="loader">
+            <div class="lds-heart">
+                <div> <img src="images/logo.svg"> </div>
+            </div>
+        </div>
+    </div>-->
+	<header>
+		<a href="javascript:void(0);" class="logo"> <img src="images/cliq-logo.png"> </a>
+		<a href="javascript:void(0);"> <img src="images/logo.png" height="60"> </a>
+		<div class="menu">
+			<div class="menu-bar"> <span class="line1"></span> <span></span> <span class="line3"></span> </div>
+			<nav class="navigation">
+			<div class="menu-bar open"> <span class="line1"></span> <span></span> <span class="line3"></span> </div>
+				<ul class="clearfix">
+					<li><a href="javascript:void(0);"> About CLIQBOLA </a></li>
+					<li><a href="javascript:void(0);"> Hot to play <span>(Rules/T&amp;C) </span> </a></li>
+					<li id="total_earning"><a href="lucky-draw.html">Total Earnings</a></li>
+					<li id="liveStreaMenu"><a href="youtube-live.html">Livestream</a></li>
+					<li id="login"><a href="login.html">Sign In</a></li>
+					<li id="logout" onclick="logout()"><a href="javascript:void(0);">Logout</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<div class="container-fluid"> 
+		<div class="row"> 
+			<div class="col-sm-12"> 
+				<div class="CliQBola-online"> <span>Registration Completed for </span> CliQBola Online </div>
+				<p class="text-center"> Generate your Ticket for the Live Online Event on 29th May 2020, 6pm onwards.</p>
+				<div class="text-center"> 
+					<a href="javascript:void(0);" class="btn btn-primary mt-5" onclick="generateTicket()">Generate My Ticket</a>
+				</div>
+		</div>
+	</div>
+	</div>
+
+<div class="overlay"></div>
+<script src="js/jquery-2.2.3.min.js"  ></script>
+<script src="js/popper.min.js"  ></script>
+<script src="js/bootstrap.min.js"  ></script>
+<script src="js/app.js" ></script>
+<script>
+
+// Ticket Generating for user
+	function generateTicket(){
+		var data = {};
+		let userPhone = localStorage.getItem('Phone');
+		let user_Token = localStorage.getItem('user_Token');
+		data.Phone = userPhone;
+		console.log(user_Token);
+		$.ajax({
+                type: "POST",
+                url: "http://13.234.143.20:3005/api/tambola/generateticket",
+				headers: {"authorization": 'Bearer ' + user_Token},
+				//contentType: "application/json",
+                data: data,
+                cache: false,
+                success: function (response) {
+					if(response.Success == true){
+						window.location.href = "generated-ticket.html";
+						console.log(response);
+						localStorage.setItem('UserDetails', JSON.stringify(response.Data));
+						//console.log(response.Token);
+					}else{
+						$('#error').html('<p>Something went wrong</p>');
+					}
+                }
+            });
+                return false;
+	};
+
+
+
+let fourcorners = [];
+		let crisscross = [];
+		let toprow = [];
+		let middlerow = [];
+		let lastrow = [];
+		let fullhouse = [];
+		let AnnouncedNumber = [76,65,31,23,45,67,28,5,13,88,62,36,55,78,83,30,43,69];
+		let checker = (arr, target) => target.every(v => arr.includes(v));
+		if (localStorage.getItem("UserDetails") || localStorage.getItem("UserDetails") === "undefined" || localStorage.getItem("UserDetails") === "") {
+			let ticket_Id = document.getElementById("ticket_Id").innerHTML = JSON.parse(localStorage.getItem('UserDetails')).TambolaTicketNumber;
+
+			generate_table(JSON.parse(localStorage.getItem('UserDetails')).TambolaTicket);
+			checkLucky();
+		}
+
+
+		function generate_table(e) {
+			console.log(e);
+			console.log(e.first);
+			console.log(e.second);
+
+			console.log(e.third);
+
+			var table = document.getElementById("myTable");
+			var row = table.insertRow(0);
+			var firstcorner = 0;
+			var lastcorner = 0;
+
+			for (let step = 8; step >= 0; step--) {
+				var cell1 = row.insertCell(0);
+				var currentvalue = e.third[step];
+				if (currentvalue > 0) {
+					lastrow.push(currentvalue);
+					if (lastcorner <= 0)
+						lastcorner = currentvalue;
+					firstcorner = currentvalue;
+					fullhouse.push(currentvalue);
+					cell1.innerHTML = "<div id = " + currentvalue + " class='value'> <img src='images/ticket-icons/"+ currentvalue +".svg' /> </div>";
+					
+				}else{
+					cell1.innerHTML = "<div id = " + currentvalue + " class='zero'> " + currentvalue + "</div>";
+				}
+				
+			}
+			fourcorners.push(firstcorner);
+			fourcorners.push(lastcorner);
+			crisscross.push(firstcorner);
+			crisscross.push(lastcorner);
+
+			var row = table.insertRow(0);
+			var i = 0;
+			for (let step = 8; step >= 0; step--) {
+				var cell1 = row.insertCell(0);
+				var currentvalue = e.second[step];
+				if (currentvalue > 0) {
+					i++;
+					if (i == 3)
+						crisscross.push(currentvalue);
+					middlerow.push(currentvalue);
+					fullhouse.push(currentvalue);
+					cell1.innerHTML = "<div id = " + currentvalue + " class='value'>  <img src='images/ticket-icons/"+ currentvalue +".svg' /> </div>";
+				}else{
+					cell1.innerHTML = "<div id = " + currentvalue + " class='zero'> " + currentvalue + "</div>";
+				}
+				
+			}
+
+			var row = table.insertRow(0);
+			firstcorner = 0;
+			lastcorner = 0;
+
+			for (let step = 8; step >= 0; step--) {
+				var cell1 = row.insertCell(0);
+				var currentvalue = e.first[step];
+				if (currentvalue > 0) {
+					toprow.push(currentvalue);
+					if (lastcorner <= 0)
+						lastcorner = currentvalue;
+					firstcorner = currentvalue;
+					fullhouse.push(currentvalue);
+					cell1.innerHTML = "<div id = " + currentvalue + " class='value'>  <img src='images/ticket-icons/"+ currentvalue +".svg' /> </div>";
+				}else{
+					cell1.innerHTML = "<div id = " + currentvalue + " class='zero'> " + currentvalue + "</div>";
+				}
+			}
+			fourcorners.push(firstcorner);
+			fourcorners.push(lastcorner);
+			crisscross.push(firstcorner);
+			crisscross.push(lastcorner);
+		};
+		
+
+
+
+ // check token and phone of user else logout
+if (!localStorage.getItem("user_Token") || localStorage.getItem("user_Token") === "undefined" || localStorage.getItem("user_Token") === "") {
+	window.location.href = "index.html";
+}
+</script>
+</body>
+</html>

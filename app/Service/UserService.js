@@ -1,10 +1,15 @@
 'use strict'
 var otpGenerator = require('otp-generator')
+var request = require("request-promise");
+
 const User = require('../Model/User');
 const Coins = require('../Model/Coins');
 const SessionDetails = require('../Model/Session');
 const UserDetails = require('../Model/UserDetails');
 const Zone = require('../Model/Zone');
+const TambolaService = require('../Service/TambolaService');
+const _tambolaService = new TambolaService();
+
 
 class UserService {
     constructor() { }
@@ -15,24 +20,32 @@ class UserService {
             Phone: data.Phone
         });
 
+        // console.log(result)
+
         if (!result) {
             return { Success: false, Data: "User not found" }
         }
 
         let OTP = otpGenerator.generate(4, { upperCase: false, specialChars: false, alphabets: false, digits: true });
-        result.OTP = '1234';
+
+        let SMSResult=yield this.sendSMS(data,OTP);
+        result.OTP = OTP;
         yield result.save();
 
-        return { Success: true, Data: result }
+
+        return { Success: true, Data: result ,SMSResult:SMSResult}
 
     }
 
     *Register(data) {
         // console.log(data)
+        if (data.R_id == '' || data.R_id == null) {
+            data.R_id = null;
+        }
         let referral_User = yield User.findOne({ _id: data.R_id });
 
         delete data.R_id;
-        data.AllCoins=[{ Game: 'Referral', Coin: 0 }]
+        data.AllCoins = [{ Game: 'Referral', Coin: 0 }]
         // console.log(data)
         let result = yield User.findOne({
             Phone: data.Phone
@@ -45,7 +58,9 @@ class UserService {
         result = new User(data);
 
         let OTP = otpGenerator.generate(4, { upperCase: false, specialChars: false, alphabets: false, digits: true });
-        result.OTP = '1234';
+       
+        let SMSResult=yield this.sendSMS(data,OTP);
+        result.OTP = OTP;
 
         if (referral_User) {
 
@@ -54,9 +69,10 @@ class UserService {
             if (c) {
 
                 result.AllCoins.push({ Game: 'Referred', Coin: c.Coins });
-                
+
                 result.coins = (result.coins + c.Coins);
                 //max referral count number
+            
                 if (referral_User.MaxCount < 3) {
                     referral_User.MaxCount = referral_User.MaxCount + 1;
                     referral_User.coins = (referral_User.coins + c.Coins)
@@ -73,12 +89,41 @@ class UserService {
 
             }
         }
-       
-       
+
+
         yield result.save();
 
-        return { Success: true, Data: result }
+        return { Success: true, Data: result ,SMSResult:SMSResult }
 
+    }
+
+
+    *sendSMS(data,OTP) {
+
+        var options = {
+            method: 'POST',
+            url: process.env.SMSAPI,
+            form:
+            {
+                method: 'sendMessage',
+                send_to: '91'+data.Phone,
+                msg: 'Your OTP to play CliQbola is '+OTP+'. Best of luck!',
+                msg_type: 'TEXT',
+                userid: process.env.SMSUID,
+                auth_scheme: 'PLAIN',
+                password: process.env.SMSPASSWORD,
+                format: 'JSON'
+            }
+        };
+        const server_Respone = request(options)
+            .then((htmlString) => {
+                return { Success: true, Data: htmlString };
+            })
+            .catch((err) => {
+                return { Success: false, Data: err };
+            });
+
+        return server_Respone;
     }
 
     *OTP_verify(data) {
@@ -113,14 +158,30 @@ class UserService {
             _id: data._id,
             Phone: data.Phone
         });
-        if (existing) {
 
+      
+        if (existing) {
+            // console.log('-----------')
             return { Success: true };
         } else {
+            // console.log('-----***********------')
             return { Success: false };
         }
     }
 
+    
+    *DeleteUser(data) {
+
+        let result = yield User.findOneAndDelete({
+            Phone:data.Phone
+         });
+ 
+         if(!result){
+             return {Success:false,Data:"data not found"}
+         }
+ 
+         return {Success:true,Data:result}
+    }
     *getProfile(data) {
 
         let existing = yield User.findOne({
@@ -144,6 +205,8 @@ class UserService {
         }
 
         let CurrentZone = null;
+        let CurrentDiscount = 0;
+        let CurrentPercent = 0
         let NextZone = null;
         let RequiredCoin = 0;
 
@@ -162,11 +225,13 @@ class UserService {
             if (existingUser.coins >= element.Min && existingUser.coins <= element.Max) {
                 // console.log(element);
                 CurrentZone = element.Name;
+                CurrentDiscount = element.Discount;
+                CurrentPercent = element.Off;
 
                 for (let index_2 = 0; index_2 < zoneList.length; index_2++) {
                     const NextElement = zoneList[index_2];
 
-                    if (element.Max < NextElement.Min) {
+                    if ((element.Max + 1) == NextElement.Min) {
                         // console.log(element,NextElement)
                         NextZone = NextElement.Name;
                         RequiredCoin = NextElement.Min - existingUser.coins;
@@ -188,6 +253,8 @@ class UserService {
         let response = {
             TotalCoins: existingUser.coins,
             CurrentZone: CurrentZone,
+            Discount: CurrentDiscount,
+            Off: CurrentPercent,
             NextZone: NextZone,
             RequiredCoin: RequiredCoin
         }

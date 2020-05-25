@@ -52,7 +52,7 @@ class JWT {
           case "User":
             // console.log(yield userService.getUserByID(decoded.user));
             let User_isLoggedin=yield userService.getUserByID(decoded.user);
-           
+          //  console.log(User_isLoggedin)
             if (User_isLoggedin.Success==true) {
             //   next();
             } else {

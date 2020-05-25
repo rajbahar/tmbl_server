@@ -1,0 +1,179 @@
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title> CliQBoola</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#000">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#000">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#000">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="">
+</head>
+<body>
+<!--<div id="pageLoader">
+        <div class="loader">
+            <div class="lds-heart">
+                <div> <img src="images/logo.svg"> </div>
+            </div>
+        </div>
+    </div>-->
+	<header>
+		<a href="javascript:void(0);" class="logo"> <img src="images/cliq-logo.png"> </a>
+		<div class="menu">
+			<div class="menu-bar"> <span class="line1"></span> <span></span> <span class="line3"></span> </div>
+			<nav class="navigation">
+			<div class="menu-bar open"> <span class="line1"></span> <span></span> <span class="line3"></span> </div>
+				<ul class="clearfix">
+					<li><a href="javascript:void(0);"> About CLIQBOLA </a></li>
+					<li><a href="javascript:void(0);"> Hot to play <span>(Rules/T&amp;C) </span> </a></li>
+					<li id="total_earning"><a href="lucky-draw.html">Total Earnings</a></li>
+					<li id="liveStreaMenu"><a href="youtube-live.html">Livestream</a></li>
+					<li id="login"><a href="login.html">Sign In</a></li>
+					<li id="logout" onclick="logout()"><a href="javascript:void(0);">Logout</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	
+	<div class="container-fluid"> 
+		<div class="row"> 
+			<div class="col-sm-12"> 
+			<p class="mt-2 text-lg uppercase">Register For</p>
+			<div class="center-logo"> <img src="images/logo.png"> </div>
+				
+					<form class="register-form" method="post" onsubmit="return userRegister(event)">
+					<div id="error"> </div>
+						<div class="form-group">
+						<input type="text" name="registerName" id="registerName" class="form-control" placeholder="Name" required autofocus autocomplete="off">
+					  </div>
+					  <div class="form-group">
+						<input type="email" name="registerEmail" id="registerEmail" class="form-control" placeholder="Email" required autocomplete="off">
+					  </div>
+					  <div class="form-group">
+						<input type="tel" name="registerPhone" id="registerPhone" class="form-control" maxlength="10" placeholder="Phone" required autocomplete="off" onkeypress="return event.charCode === 0 || /\d/.test(String.fromCharCode(event.charCode));">
+					  </div>
+					  <div class="form-group">
+						<input type="text" name="registerCity" id="registerCity" class="form-control" placeholder="City" required autocomplete="off">
+					  </div>
+					  <div class="form-group terms">
+						  <input type="checkbox" id="tnc" required>
+						  <label for="tnc">AGREE TO T&amp;C</label>
+						</div>
+					  <button type="submit" class="btn btn-primary mt-1">Submit</button>
+					  
+					</form>
+				</div>
+		</div>
+	</div>
+	
+	<!--Thanks you for registration and otp popup-->
+	<div class="modal fade small-popup" id="registerSuccessful" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+				<h3> Thank you for registering</h3>
+				<p class="golden">verify your details with an otp </p>
+					<button type="button" class="btn btn-primary mt-1 mb-4" onclick="sentOTP()">Continue</button>
+					<div id="error"> </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+<div class="overlay"></div>
+<script src="js/jquery-2.2.3.min.js" defer ></script>
+<script src="js/popper.min.js" defer ></script>
+<script src="js/bootstrap.min.js" defer ></script>
+<script src="js/app.js" defer></script>
+
+<script>
+
+
+// Get URL Prams for Id
+let url_string = window.location.href;
+let url = new URL(url_string);
+let R_id = url.searchParams.get("id");
+
+localStorage.setItem('R_id', R_id);
+console.log(R_id);
+
+
+
+
+	// Register User
+	function userRegister(e){
+	e.preventDefault();
+		var data = {};
+		console.log('this is'+ R_id);
+		data.Name = $('#registerName').val();
+		data.Email = $('#registerEmail').val();
+		data.Phone = $('#registerPhone').val();
+		data.City = $('#registerCity').val();
+		if(R_id != null){
+			data.R_id = R_id;
+		}else{
+			data.R_id = "";
+		}
+		
+		console.log(data);
+		$.ajax({
+                type: "POST",
+                url: "http://13.234.143.20:3005/api/register",
+                data: data,
+                cache: false,
+                success: function (response) {
+					if(response.Success == true){
+						//window.location.href = "enter-otp.html";
+						console.log(response);
+						localStorage.setItem('Phone', response.Data.Phone);
+						$('#registerSuccessful').modal('show');
+					}else{
+						$('.register-form #error').show();
+						$('.register-form #error').html(response.Data);
+						console.log(response.Data);
+					}
+                }
+            });
+                return false;
+	};
+	
+	// Send OTP
+	function sentOTP(){
+		window.location.href = "enter-otp.html";
+	}
+	
+	
+	
+let liveStreaMenu = document.getElementById("liveStreaMenu");
+// check token and phone of user else logout
+if (!localStorage.getItem("user_Token") || localStorage.getItem("user_Token") === "undefined" || localStorage.getItem("user_Token") === "") {
+	liveStreaMenu.style.display = "none";
+	
+}else if(!localStorage.getItem("UserDetails") || localStorage.getItem("UserDetails") === "undefined" || localStorage.getItem("UserDetails") === ""){
+	liveStreaMenu.style.display = "none";
+}else{
+}
+	
+	</script>
+</body>
+</html>

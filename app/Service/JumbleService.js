@@ -68,7 +68,7 @@ class JumbleService{
         });
         console.log(userresult);
         if(userresult)
-            return {Success:false,Data:"You have already played the jumble. Come back tomorrow"}
+            return {Success:false,Data:"You have already played the jumble."}
 
         var DatatoSend = {
             "_id":result._id,
@@ -123,7 +123,7 @@ class JumbleService{
                 }
                 yield existingUser.save();
 
-            return {Success:true,Data:"Correct Answer"}
+            return {Success:true,Data:"CONGRATS! YOU HAVE WON "+c.Coins+" COINS"}
         }
         else
         {
@@ -133,7 +133,7 @@ class JumbleService{
                 Phone:data.Phone,Session:sessionresult.Session
             },{ $set: { Jumble: userresult.Jumble } });
             
-            return{Success:false,Data:"OPPS! You Got the Wrong Answer"}
+            return{Success:false,Data:"OOPS! YOU GOT THE WRONG ANSWER"}
         }
     }
 }
