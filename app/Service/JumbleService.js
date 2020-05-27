@@ -56,19 +56,17 @@ class JumbleService{
     *FetchOneJumble(data){
         const today = moment().startOf('day')
         
+        let sessionresult=yield SessionDetails.findOne({}).sort([['Session', -1]])
+        let userresult=yield UserDetails.findOne({ Phone:data.Phone,Session:sessionresult.Session});
+        console.log(userresult);
+        if(userresult.Jumble.length > 0)
+            return {Success:false,Data:"You have already played the jumble."}
+
         let result=yield Jumble.findOne({
             "jumbleDate": {"$gte": today.toDate(), "$lt": moment(today).endOf('day').toDate()}
         }, {__v:0,submittedBy:0,submittedDate:0});
         if(!result)
             return {Success:false,Data:"No Jumble Today"}
-
-        let sessionresult=yield SessionDetails.findOne({}).sort([['Session', -1]])
-        let userresult=yield UserDetails.findOne({ Phone:data.Phone,Session:sessionresult.Session,
-        Jumble: {$elemMatch: {_id: result._id}}
-        });
-        console.log(userresult);
-        if(userresult)
-            return {Success:false,Data:"You have already played the jumble."}
 
         var DatatoSend = {
             "_id":result._id,

@@ -59,7 +59,7 @@ class JWT {
               response.status(403).json({
                 Success: false,
                 error: "error",
-                data: "Authentication failed",
+                Data: "Authentication failed",
               });
             }
             break;
@@ -88,14 +88,14 @@ class JWT {
         response.status(403).json({
           Success: false,
           error: "error",
-          data: "Token not found in request.",
+          Data: "Token not found in request.",
         });
       }
     } catch (error) {
       response.status(403).json({
         Success: false,
         error: error.message,
-        data: "Token verify error.",
+        Data: "Token verify error.",
       });
     }
   }

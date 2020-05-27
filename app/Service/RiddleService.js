@@ -57,19 +57,18 @@ class RiddleService{
     *FetchOneRiddle(data){
         const today = moment().startOf('day')
 
-
-        let result=yield Riddle.findOne({
-            "riddleDate": {"$gte": today.toDate(), "$lt": moment(today).endOf('day').toDate()}
-        }, {__v:0,submittedBy:0,submittedDate:0,answer:0});
-        if(!result)
-            return {Success:false,Data:"No Riddle Today"}
-
         let sessionresult=yield SessionDetails.findOne({}).sort([['Session', -1]])
         let userresult=yield UserDetails.findOne({ Phone:data.Phone,Session:sessionresult.Session
         });
         console.log(userresult);
         if(userresult.Riddle.length > 0)
             return {Success:false,Data:"You have already played the riddle."}
+
+        let result=yield Riddle.findOne({
+            "riddleDate": {"$gte": today.toDate(), "$lt": moment(today).endOf('day').toDate()}
+        }, {__v:0,submittedBy:0,submittedDate:0,answer:0});
+        if(!result)
+            return {Success:false,Data:"No Riddle Today"}       
 
         return {Success:true,Data:result}
     }

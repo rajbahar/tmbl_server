@@ -12,12 +12,12 @@ class LuckyDrawController{
         response.end();
     }
 
-    *SelectLuckyDraw(request,response){
-        const data=request.body;
-        const result= yield _LuckyDrawService.SelectLuckyDraw(data);
-        response.json(result);
-        response.end();
-    }
+    // *SelectLuckyDraw(request,response){
+    //     const data=request.body;
+    //     const result= yield _LuckyDrawService.SelectLuckyDraw(data);
+    //     response.json(result);
+    //     response.end();
+    // }
 
     *FetchOptedLuckyDraw(request,response){
         const result= yield _LuckyDrawService.FetchOptedLuckyDraw();

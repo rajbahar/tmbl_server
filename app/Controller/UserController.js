@@ -91,6 +91,19 @@ class UserController{
         response.json(result);
         response.end();
     }
+
+    *SetReminder(request,response){
+        const data=request.query;
+        const result= yield _userService.SetReminder(data);
+        response.json(result);
+        response.end();
+    }
+
+    *sendReminderSMS(request,response){
+        const result= yield _userService.sendReminderSMS();
+        response.json(result);
+        response.end();
+    }
 }
 
 module.exports=UserController;

@@ -53,6 +53,7 @@ function routes(app) {
     });
 
     router.get('/user/profile',_userController.GetProfile);
+    router.get('/user/setReminder',_userController.SetReminder);
     router.get('/user/total/earning',_userController.GetEarning);
     router.get('/user/coins/details',_userController.GetCoinsDetails);
     router.get('/get/quota/details',_tambolaController.GetQuataDetails);
@@ -67,7 +68,6 @@ function routes(app) {
     router.post("/tambola/validateticket",_tambolaController.ValidateTicket);
     router.get("/tambola/tambolaannounced",_tambolaController.TambolaAnnounced);
     router.post("/lucky/optluckydraw",_luckydrawController.OptLuckyDraw);
-    router.post("/lucky/selectluckydraw",_luckydrawController.SelectLuckyDraw);
     router.post("/guess/selectnumber",_guessnextController.SelectGuessNext);
 
   });
@@ -97,8 +97,6 @@ function routes(app) {
     router.post("/tambola/tambolaanytwo",_tambolaController.TSCAnyTwoPatttern);
     router.post("/tambola/tsconefullhouse",_tambolaController.TSCOneFullhousePatttern);
     
-
-    router.post("/lucky/selectluckydraw",_luckydrawController.SelectLuckyDraw);
     router.get("/lucky/fetchoptedluckydraw",_luckydrawController.FetchOptedLuckyDraw);
     router.get("/lucky/fetchwinners",_luckydrawController.FetchWinners);
     
@@ -114,9 +112,11 @@ function routes(app) {
     router.post("/zone/create",_zoneController.create);
     router.get("/zone/list",_zoneController.List);
 
-    router.post('/broadcast/quiz',_quizController.BroadcastQuiz)
-    router.post('/broadcast/guess',_guessnextController.BroadcastGuessNext)
+    router.post("/broadcast/quiz",_quizController.BroadcastQuiz)
+    router.post("/broadcast/guess",_guessnextController.BroadcastGuessNext)
     router.get("/user/list",_userController.List);
+
+    router.get("/user/sendReminder",_userController.sendReminderSMS);
 
   });
  

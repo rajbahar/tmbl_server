@@ -9,11 +9,15 @@ class LuckyDrawService {
     constructor() { }
 
     *OptLuckyDraw(data) {
-        var success= false;
+        var success = false;
         let sessionresult = yield SessionDetails.findOne({}).sort([['Session', -1]])
         let userresult = yield UserDetails.findOne({ Phone: data.Phone, Session: sessionresult.Session });
         if (!userresult)
             return { Success: false, Data: "User not found" }
+        
+        if(userresult.LuckyDraw.opt == true){
+            return { Success: false, Data: "User already participated in lucky draw. " }
+        }
 
         yield UserDetails.findOneAndUpdate({
             Phone: data.Phone, Session: sessionresult.Session
@@ -28,39 +32,60 @@ class LuckyDrawService {
                 }
                 c.Quota = c.Quota - 1;
                 yield c.save();
-                success =true;
-            }            
-        }
+                yield UserDetails.findOneAndUpdate({
+                    Phone: data.Phone, Session: sessionresult.Session
+                }, { $set: { LuckyDraw: { opt: true, win: true } } });
 
-        let updateresult = yield UserDetails.findOne({ Phone: data.Phone, Session: sessionresult.Session });
+
+                let existingUser = yield User.findOne({
+                    Phone: data.Phone
+                });
+                existingUser.coins = (existingUser.coins + c.Coins);
+
+                let LuckyDrawFound = false;
+                for (let index = 0; index < existingUser.AllCoins.length; index++) {
+                    const element = existingUser.AllCoins[index];
+                    if (element.Game == 'LuckyDraw') {
+                        LuckyDrawFound = true;
+                        existingUser.AllCoins[index].Coin = existingUser.AllCoins[index].Coin + c.Coins;
+                    }
+                }
+                if (LuckyDrawFound == false) {
+                    existingUser.AllCoins.push({ Game: 'LuckyDraw', Coin: c.Coins });
+                }
+
+                yield existingUser.save();
+                success = true;
+            }
+        }
         return { Success: success, Data: 'LuckyDraw' }
     }
 
-    *SelectLuckyDraw(data) {
-        let sessionresult = yield SessionDetails.findOne({}).sort([['Session', -1]])
-        let userresult = yield UserDetails.findOne({ Phone: data.Phone, Session: sessionresult.Session });
-        if (!userresult)
-            return { Success: false, Data: "User not found" }
+    // *SelectLuckyDraw(data) {
+    //     let sessionresult = yield SessionDetails.findOne({}).sort([['Session', -1]])
+    //     let userresult = yield UserDetails.findOne({ Phone: data.Phone, Session: sessionresult.Session });
+    //     if (!userresult)
+    //         return { Success: false, Data: "User not found" }
 
-        yield UserDetails.findOneAndUpdate({
-            Phone: data.Phone, Session: sessionresult.Session
-        }, { $set: { LuckyDraw: { opt: true, win: true } } });
+    //     yield UserDetails.findOneAndUpdate({
+    //         Phone: data.Phone, Session: sessionresult.Session
+    //     }, { $set: { LuckyDraw: { opt: true, win: true } } });
 
-        let updateresult = yield UserDetails.findOne({ Phone: data.Phone, Session: sessionresult.Session });
+    //     let updateresult = yield UserDetails.findOne({ Phone: data.Phone, Session: sessionresult.Session });
 
-        //add lucky draw coins 
-        let result = yield User.findOne({
-            Phone: data.Phone
-        });
-        let c = yield Coins.findOne({ Game: 'LuckyDraw' });
-        if (c) {
-            result.coins = (result.coins + c.Coins)
-        }
-        yield result.save();
+    //     //add lucky draw coins 
+    //     let result = yield User.findOne({
+    //         Phone: data.Phone
+    //     });
+    //     let c = yield Coins.findOne({ Game: 'LuckyDraw' });
+    //     if (c) {
+    //         result.coins = (result.coins + c.Coins)
+    //     }
+    //     yield result.save();
 
 
-        return { Success: true, Data: updateresult }
-    }
+    //     return { Success: true, Data: updateresult }
+    // }
 
     *FetchOptedLuckyDraw() {
         let sessionresult = yield SessionDetails.findOne({}).sort([['Session', -1]])

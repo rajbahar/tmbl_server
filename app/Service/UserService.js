@@ -1,6 +1,7 @@
 'use strict'
 var otpGenerator = require('otp-generator')
 var request = require("request-promise");
+var _ = require('lodash')
 
 const User = require('../Model/User');
 const Coins = require('../Model/Coins');
@@ -23,17 +24,17 @@ class UserService {
         // console.log(result)
 
         if (!result) {
-            return { Success: false, Data: "User not found" }
+            return { Success: false, Data: "User not exist." }
         }
 
         let OTP = otpGenerator.generate(4, { upperCase: false, specialChars: false, alphabets: false, digits: true });
 
-        let SMSResult=yield this.sendSMS(data,OTP);
+        let SMSResult = yield this.sendSMS(data, OTP);
         result.OTP = OTP;
         yield result.save();
 
 
-        return { Success: true, Data: result ,SMSResult:SMSResult}
+        return { Success: true, Data: result, SMSResult: SMSResult }
 
     }
 
@@ -52,14 +53,14 @@ class UserService {
         });
 
         if (result) {
-            return { Success: false, Data: "User already exist" }
+            return { Success: false, Data: "User already exist." }
         }
 
         result = new User(data);
 
         let OTP = otpGenerator.generate(4, { upperCase: false, specialChars: false, alphabets: false, digits: true });
-       
-        let SMSResult=yield this.sendSMS(data,OTP);
+
+        let SMSResult = yield this.sendSMS(data, OTP);
         result.OTP = OTP;
 
         if (referral_User) {
@@ -72,7 +73,7 @@ class UserService {
 
                 result.coins = (result.coins + c.Coins);
                 //max referral count number
-            
+
                 if (referral_User.MaxCount < 3) {
                     referral_User.MaxCount = referral_User.MaxCount + 1;
                     referral_User.coins = (referral_User.coins + c.Coins)
@@ -93,12 +94,12 @@ class UserService {
 
         yield result.save();
 
-        return { Success: true, Data: result ,SMSResult:SMSResult }
+        return { Success: true, Data: result, SMSResult: SMSResult }
 
     }
 
 
-    *sendSMS(data,OTP) {
+    *sendSMS(data, OTP) {
 
         var options = {
             method: 'POST',
@@ -106,8 +107,8 @@ class UserService {
             form:
             {
                 method: 'sendMessage',
-                send_to: '91'+data.Phone,
-                msg: 'Your OTP to play CliQbola is '+OTP+'. Best of luck!',
+                send_to: '91' + data.Phone,
+                msg: 'Your OTP to play CliQbola is ' + OTP + '. Best of luck!',
                 msg_type: 'TEXT',
                 userid: process.env.SMSUID,
                 auth_scheme: 'PLAIN',
@@ -126,6 +127,22 @@ class UserService {
         return server_Respone;
     }
 
+    *sendChunkSMS(send_to,msg) {
+        
+        var URL=process.env.SMSAPI+'?method=SendMessage&send_to='+send_to+'&msg='+msg+'&msg_type=TEXT&userid='+process.env.SMSUID+'&auth_scheme=plain&password='+process.env.SMSPASSWORD+'&v=1.1&format=text';
+
+        const server_Respone = request(URL)
+            .then((htmlString) => {
+                return { Success: true, Data: htmlString };
+            })
+            .catch((err) => {
+                return { Success: false, Data: err };
+            });
+
+        return server_Respone;
+    }
+
+
     *OTP_verify(data) {
 
         let existing = yield User.findOne({
@@ -134,7 +151,7 @@ class UserService {
         });
 
         if (!existing) {
-            return { Success: false, Data: "User not found." }
+            return { Success: false, Data: "Incorrect OTP. Please try again" }
         }
 
         let sessionresult = yield SessionDetails.findOne({}).sort([['Session', -1]])
@@ -159,7 +176,7 @@ class UserService {
             Phone: data.Phone
         });
 
-      
+
         if (existing) {
             // console.log('-----------')
             return { Success: true };
@@ -169,18 +186,65 @@ class UserService {
         }
     }
 
-    
+    *SetReminder(data) {
+        let result = yield User.findOne({ Phone: data.Phone });
+        if (!result) {
+            return { Success: false, Data: "User not found." }
+        }
+        result.setReminder = true;
+        yield result.save();
+        return { Success: true, Data: result }
+
+    }
+
+    *sendReminderSMS() {
+
+        let result = yield User.find({ setReminder: true });
+        if (!result) {
+            return { Success: false, Data: "No user has subscribed for SMS reminder." }
+        }
+
+        //send sms for each 
+        let PhoneArr = [];
+        //all phone number in array format
+        for (let index = 0; index < result.length; index++) {
+            PhoneArr.push(result[index].Phone);
+        }
+
+        // PhoneArr = ['8976752466', '8779038089', '9769098408'];
+        //phone array split in chuck of 1000 user
+        let PhoneChunkData = _.chunk(PhoneArr, 1000)
+
+        // console.log(PhoneChunkData);
+
+        let smsResponse=[]
+        //send SMS in chunk
+        for (let index = 0; index < PhoneChunkData.length; index++) {
+
+            let send_to=PhoneChunkData[index].toString();
+            let msg='Welcome to SMS GupShup API ';
+
+            //send sms API
+
+           // smsResponse.push(yield this.sendChunkSMS(send_to,msg))
+        }
+
+
+        return { Success: true, Data: "SMS Sent successfully" ,Response:smsResponse}
+    }
+
+
     *DeleteUser(data) {
 
         let result = yield User.findOneAndDelete({
-            Phone:data.Phone
-         });
- 
-         if(!result){
-             return {Success:false,Data:"data not found"}
-         }
- 
-         return {Success:true,Data:result}
+            Phone: data.Phone
+        });
+
+        if (!result) {
+            return { Success: false, Data: "data not found" }
+        }
+
+        return { Success: true, Data: result }
     }
     *getProfile(data) {
 

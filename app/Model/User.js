@@ -37,7 +37,8 @@ const UserSchema = mongoose.Schema({
     type:Number,
     default:0
   },
-  AllCoins:[{Game: String,Coin:Number}]
+  AllCoins:[{Game: String,Coin:Number}],
+  setReminder: {type:Boolean,default:false}
 
 });
 
