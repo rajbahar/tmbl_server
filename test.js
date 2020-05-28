@@ -2,7 +2,7 @@
 var c = 0;
 setInterval(() => {
 
-    var socket = require('socket.io-client')('http://localhost:3000/');
+    var socket = require('socket.io-client')('http://localhost:3350/');
     socket.on('connect', function () {
         c=c+1;
         console.log("SOCKET CLIENT CONNECT"+c)

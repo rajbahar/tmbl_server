@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "array-contains-all": "^1.0.1",
+    "co-express": "^2.0.0",
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
     "dateformat": "^3.0.3",

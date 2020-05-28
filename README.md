@@ -12,7 +12,7 @@ npm start
   }]
 
 #.env
-  HOST=localhost
+HOST=localhost
 PORT=3350
 SECRET_KEY=n96M1TPG821EdN4mMIjnGKxGytx9W2UJ
 CONNECTION_STRING=mongodb://root:007552nZxua6@3.7.170.192:27017/tatacliq?authSource=admin
@@ -21,4 +21,5 @@ SMSUID=2000192300
 SMSPASSWORD=Ako9xBEfd
 
 
-
+# local
+CONNECTION_STRING=mongodb://localhost:27017/tatacliq

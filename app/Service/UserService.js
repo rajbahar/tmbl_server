@@ -29,12 +29,12 @@ class UserService {
 
         let OTP = otpGenerator.generate(4, { upperCase: false, specialChars: false, alphabets: false, digits: true });
 
-        let SMSResult = yield this.sendSMS(data, OTP);
+        // let SMSResult = yield this.sendSMS(data, OTP);
         result.OTP = OTP;
         yield result.save();
 
 
-        return { Success: true, Data: result, SMSResult: SMSResult }
+        return { Success: true, Data: result, SMSResult: 'SMSResult' }
 
     }
 

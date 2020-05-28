@@ -42,6 +42,10 @@ function routes(app) {
     router.post("/admin/login",_adminController.Login);
     router.post("/admin/register",_adminController.Register);
 
+    router.get('/profile',_userController.GetProfile);
+
+    router.get("/users/list",_userController.List);
+
     router.get('/user/delete',_userController.DeleteUser);
   });
 

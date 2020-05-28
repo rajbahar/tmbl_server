@@ -76,7 +76,6 @@
 var mongoose = require("mongoose");
 
 var connectionString=  process.env.CONNECTION_STRING;
-// var connectionString= "mongodb://localhost:27017/tatacliq";
 var options={
   useNewUrlParser: true,
   useUnifiedTopology: true,

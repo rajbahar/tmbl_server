@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 var liveSocketCollectionSchema = mongoose.Schema({
-    liveSocket:{type:String ,required:true}
+    SocketID:{type:String ,required:true}
 },{strict:true});
 
 // export model user with UserSchema

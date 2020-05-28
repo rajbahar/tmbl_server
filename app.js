@@ -13,6 +13,7 @@ const database = require("./app/database/database");
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var socketRouter = require('./routes/sockets');
 
 var app = express();
 
@@ -20,7 +21,7 @@ var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
 app.use(cors())
-app.use(logger('dev'));
+// app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -33,6 +34,8 @@ app.use(function(req, res, next){
 
 app.use('/', indexRouter(app));
 app.use('/users', usersRouter);
+
+socketRouter(io);
 
 app.use(errorhandler({ log: false })) //error log off
 // app.use(errorhandler({ log: true })) //error log on
