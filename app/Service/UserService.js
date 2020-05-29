@@ -29,11 +29,11 @@ class UserService {
 
         let OTP = otpGenerator.generate(4, { upperCase: false, specialChars: false, alphabets: false, digits: true });
 
-        // let SMSResult = yield this.sendSMS(data, OTP);
+        let SMSResult = yield this.sendSMS(data, OTP);
         result.OTP = OTP;
         yield result.save();
 
-
+        result.OTP = null;
         return { Success: true, Data: result, SMSResult: 'SMSResult' }
 
     }
@@ -99,7 +99,7 @@ class UserService {
     }
 
 
-    *sendSMS(data, OTP) {
+    *sendSMS(data, msg) {
 
         var options = {
             method: 'POST',
@@ -107,8 +107,8 @@ class UserService {
             form:
             {
                 method: 'sendMessage',
-                send_to: '91' + data.Phone,
-                msg: 'Your OTP to play CliQbola is ' + OTP + '. Best of luck!',
+                send_to: data.Phone,
+                msg: msg,
                 msg_type: 'TEXT',
                 userid: process.env.SMSUID,
                 auth_scheme: 'PLAIN',
@@ -222,7 +222,7 @@ class UserService {
         for (let index = 0; index < PhoneChunkData.length; index++) {
 
             let send_to=PhoneChunkData[index].toString();
-            let msg='Welcome to SMS GupShup API ';
+            let msg='CliQbola will begin at 6pm. Please tune it on time. <url>';
 
             //send sms API
 

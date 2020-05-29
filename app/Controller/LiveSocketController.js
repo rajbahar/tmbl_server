@@ -1,7 +1,9 @@
 'use strict';
 const LiveSocketService=require('../Service/LiveSocketService');
+const UserService=require('../Service/UserService');
 
 const _liveSocketService=new LiveSocketService();
+const _userService=new UserService();
 
 class LiveSocketController{
     constructor(){
@@ -25,6 +27,11 @@ class LiveSocketController{
 
     *DeleteAll(){
         let result=yield _liveSocketService.DeleteAll();
+        return result;
+    }
+
+    *RegisterUserList(){
+        let result=yield _userService.List();
         return result;
     }
 

@@ -18,6 +18,10 @@ class UserController{
     *Register(request,response){
         const data=request.body;
         const result= yield _userService.Register(data);
+
+        let RegisterUsers=yield _userService.List();
+        response.io.sockets.in('admin').emit('onRegisterUsers', RegisterUsers);
+
         response.json(result);
         response.end();
     }

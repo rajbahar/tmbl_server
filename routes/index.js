@@ -47,6 +47,7 @@ function routes(app) {
     router.get("/users/list",_userController.List);
 
     router.get('/user/delete',_userController.DeleteUser);
+    
   });
 
   
@@ -73,6 +74,8 @@ function routes(app) {
     router.get("/tambola/tambolaannounced",_tambolaController.TambolaAnnounced);
     router.post("/lucky/optluckydraw",_luckydrawController.OptLuckyDraw);
     router.post("/guess/selectnumber",_guessnextController.SelectGuessNext);
+    router.get("/youtube/link",_adminController.YoutubeLink);
+
 
   });
 
@@ -121,6 +124,8 @@ function routes(app) {
     router.get("/user/list",_userController.List);
 
     router.get("/user/sendReminder",_userController.sendReminderSMS);
+
+    router.post("/youtube/link/add",_adminController.AddLink);
 
   });
  

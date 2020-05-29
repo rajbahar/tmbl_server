@@ -9,27 +9,35 @@ var tambola = require('tambola-generator');
 var arrayContainsAll = require('array-contains-all');
 var arrayDiff = require('simple-array-diff');
 
+
+
 class TambolaService {
     constructor() { }
 
     *GenerateTicket(data) {
+
         let userresult = yield User.findOne({ Phone: data.Phone });
         if (!userresult)
             return { Success: false, Data: "User not present" }
+
         let sessionresult = yield SessionDetails.findOne({}).sort([['Session', -1]])
         let result = yield UserDetails.findOne({ Phone: data.Phone, Session: sessionresult.Session });
 
         var NextTicketNo = 1;
         var TambolaTicketNo = yield UserDetails.findOne({}, { TambolaTicketNumber: 1 }).sort([['TambolaTicketNumber', -1]]);
-        console.log(NextTicketNo);
-        console.log(TambolaTicketNo);
+
+       // console.log(NextTicketNo);
+       // console.log(TambolaTicketNo);
+
         if (TambolaTicketNo)
             NextTicketNo = TambolaTicketNo.TambolaTicketNumber + 1;
-        console.log(NextTicketNo);
+
+       // console.log(NextTicketNo);
+
         if (!result) {
             var ticket = tambola.getTickets(1);
-            console.log("phone not found");
-            console.log(ticket);
+           // console.log("phone not found");
+           // console.log(ticket);
             var DatatoUpload = {
                 "Phone": data.Phone,
                 "Session": sessionresult.Session,
@@ -51,28 +59,65 @@ class TambolaService {
             let existingUser = yield User.findOne({
                 Phone: data.Phone
             });
-            let c= yield Coins.findOne({ Game: 'SignUp'});
-            if(c){
-                existingUser.coins= (existingUser.coins+c.Coins);
 
-                let SignUpFound=false;
+            let c = yield Coins.findOne({ Game: 'SignUp' });
+            if (c) {
+                existingUser.coins = (existingUser.coins + c.Coins);
+
+                let SignUpFound = false;
                 for (let index = 0; index < existingUser.AllCoins.length; index++) {
                     const element = existingUser.AllCoins[index];
                     if (element.Game == 'SignUp') {
-                        SignUpFound=true;
+                        SignUpFound = true;
                         existingUser.AllCoins[index].Coin = existingUser.AllCoins[index].Coin + c.Coins;
                     }
                 }
-                if(SignUpFound==false){
+                if (SignUpFound == false) {
                     existingUser.AllCoins.push({ Game: 'SignUp', Coin: c.Coins });
                 }
             }
+
             yield existingUser.save();
+
+            //send sms 
+            let msg = 'Thank You for registering. See you on 29th May to play CliQBola with Abish Matthew. You can win additional coins by playing mini games or referring this to a friend';
+
+            yield this.sendSMS(data, msg);
 
         }
 
+
+
         // add signup coin pedding
         return { Success: true, Data: result }
+    }
+
+    *sendSMS(data, msg) {
+
+        var options = {
+            method: 'POST',
+            url: process.env.SMSAPI,
+            form:
+            {
+                method: 'sendMessage',
+                send_to: data.Phone,
+                msg: msg,
+                msg_type: 'TEXT',
+                userid: process.env.SMSUID,
+                auth_scheme: 'PLAIN',
+                password: process.env.SMSPASSWORD,
+                format: 'JSON'
+            }
+        };
+        const server_Respone = request(options)
+            .then((htmlString) => {
+                return { Success: true, Data: htmlString };
+            })
+            .catch((err) => {
+                return { Success: false, Data: err };
+            });
+
+        return server_Respone;
     }
 
     *ValidateTicket(data) {
@@ -949,7 +994,7 @@ class TambolaService {
             fourcorners.push(lastcorner);
 
 
-            
+
             var Nomatch = true;
             var claimed = 0;
 
@@ -1000,7 +1045,7 @@ class TambolaService {
 
             }
             else {
-                
+
                 const intersection = fullhouse.filter(element => Data.Announced.includes(element));
                 if (intersection.length >= 5 && claimed < 1) {
                     //change div to show class
